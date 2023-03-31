@@ -1,0 +1,40 @@
+@import 'variables.css';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.lrPaddingContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+    @media (min-width: 700px) {
+        padding-left: 40px;
+        padding-right: 40px;  
+    }
+    @media (min-width: 1280px) {
+        padding-left: 165px;
+        padding-right: 165px;
+    }
+}
+
+.upperCaseBold13px {
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.whiteLink {
+    color: rgb(var(--simple-white));
+    letter-spacing: 2px;
+    &:hover {
+        color: rgb(var(--highlight-bright-color));
+    }
+}
