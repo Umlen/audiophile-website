@@ -3,7 +3,7 @@ import headerStyles from '@/styles/header.module.scss';
 
 function DesktopMenu() {
     return (
-        <nav className={headerStyles.desktopMenu}>
+        <nav className={headerStyles.desktopMenu} aria-label='main menu'>
             <Link href='/' className={`upperCaseBold13px whiteLink`}>
                 home
             </Link>

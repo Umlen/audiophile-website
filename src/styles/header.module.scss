@@ -9,14 +9,6 @@
     justify-content: space-between;
 }
 
-.cartIcon {
-    cursor: pointer;
-    fill: rgb(var(--simple-white));
-    &:hover {
-        fill: rgb(var(--highlight-bright-color));
-    }
-}
-
 @media (min-width: 1024px) {/*Reordering for desktop menu*/
     .logo {
         order: 1

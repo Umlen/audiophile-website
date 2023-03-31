@@ -8,6 +8,10 @@ body {
     font-family: 'Manrope', sans-serif;
 }
 
+h1, p {
+    margin: 0;
+}
+
 a {
     text-decoration: none;
 }
@@ -25,6 +29,12 @@ a {
     }
 }
 
+.baseText {
+    opacity: .5;
+    line-height: 1.55;
+    font-weight: 500;
+}
+
 .upperCaseBold13px {
     font-size: .8rem;
     font-weight: 700;
@@ -34,7 +44,16 @@ a {
 .whiteLink {
     color: rgb(var(--simple-white));
     letter-spacing: 2px;
+    line-height: 1.9;
     &:hover {
         color: rgb(var(--highlight-bright-color));
+    }
+}
+
+.svgIcons {
+    cursor: pointer;
+    fill: rgb(var(--simple-white));
+    &:hover {
+        fill: rgb(var(--highlight-bright-color));
     }
 }

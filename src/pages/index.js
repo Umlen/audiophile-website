@@ -1,8 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
-//import styles from '@/styles/Home.module.css';
-import Link from 'next/link';
 import Header from '@/Components/Header';
+import Footer from '@/Components/Footer';
 
 function Home() {
   return (
@@ -13,9 +11,7 @@ function Home() {
       </Head>
       <main>
         <Header />
-        <h1>123 asdfghjkl</h1>
-        <h4>123 asdfghjkl</h4>
-        <p>123 asdfghjkl</p>
+        <Footer />
       </main>
     </>
   );
