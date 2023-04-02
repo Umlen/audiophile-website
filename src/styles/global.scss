@@ -29,10 +29,24 @@ a {
     }
 }
 
+.svgIcons {
+    cursor: pointer;
+    fill: rgb(var(--primary-white));
+    &:hover {
+        fill: rgb(var(--highlight-bright-color));
+    }
+}
+
 .baseText {
     opacity: .5;
     line-height: 1.55;
     font-weight: 500;
+}
+
+.widespaceText {
+    text-transform: uppercase;
+    font-size: .875rem;
+    letter-spacing: 10px;
 }
 
 .upperCaseBold13px {
@@ -41,8 +55,20 @@ a {
     text-transform: uppercase;
 }
 
+.largeHeader {
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    line-height: 1.11;
+    letter-spacing: 1.29px;
+    @media (min-width: 700px) {
+        font-size: 3.5rem;
+        line-height: 1.03;
+        letter-spacing: 2px; 
+    }
+}
+
 .whiteLink {
-    color: rgb(var(--simple-white));
+    color: rgb(var(--primary-white));
     letter-spacing: 2px;
     line-height: 1.9;
     &:hover {
@@ -50,10 +76,18 @@ a {
     }
 }
 
-.svgIcons {
-    cursor: pointer;
-    fill: rgb(var(--simple-white));
+.baseButton {
+    padding: 15px 30px 13px;
+    letter-spacing: 1px;
+    line-height: 1em;
+    text-align: center;
+    max-width: 170px;
+}
+
+.orangeButton {
+    background-color: rgb(var(--highlight-bright-color));
+    color: rgb(var(--primary-white));
     &:hover {
-        fill: rgb(var(--highlight-bright-color));
+        background-color: rgb(var(--highlight-pale-color));
     }
 }

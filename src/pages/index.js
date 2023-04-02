@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import homeStyles from '@/styles/home.module.scss';
 import Header from '@/Components/Header';
 import Footer from '@/Components/Footer';
 
@@ -7,10 +9,23 @@ function Home() {
     <>
       <Head>
         <title>Audiophile</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <main>
-        <Header />
+        <div className={`lrPaddingContainer ${homeStyles.sliderWrapper}`}>
+          <Header />
+          <section className={homeStyles.slider}>
+            <p className={`widespaceText ${homeStyles.superLowOpacity}`}>new product</p>
+            <h1 className='largeHeader'>XX99 Mark II HeadphoneS</h1>
+            <p className={`baseText ${homeStyles.lowOpacity}`}>
+                Experience natural, lifelike audio and exceptional build 
+                quality made for the passionate music enthusiast.
+            </p>
+            <Link href='/' className='upperCaseBold13px baseButton orangeButton'>
+                see product
+            </Link>
+          </section>
+        </div>
         <Footer />
       </main>
     </>

@@ -1,0 +1,57 @@
+.sliderWrapper {
+    position: relative;
+    display: grid;
+    align-items: start;
+    min-height: 600px;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-image: url(/assets/home/mobile/image-header.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom center;
+        filter: brightness(60%);
+    }
+    @media (min-width: 700px) {
+        min-height: 730px;
+        &::before {
+            background-image: url(/assets/home/tablet/image-header.jpg);
+            background-position: center;
+        }
+    }
+    @media (min-width: 1024px) {
+        &::before {
+            background-image: url(/assets/home/desktop/image-header.jpg);
+        }
+    }
+}
+
+.slider {
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    text-align: center;
+    gap: 24px;
+    color: rgb(var(--primary-white));
+    @media (min-width: 700px) {
+        max-width: 400px;
+    }
+    @media (min-width: 1024px) {
+        justify-self: start;
+        justify-items: start;
+        text-align: left;
+    }
+}
+
+.superLowOpacity {
+    opacity: .5;
+}
+
+.lowOpacity {
+    opacity: .75;
+}
