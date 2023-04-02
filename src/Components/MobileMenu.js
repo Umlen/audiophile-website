@@ -1,13 +1,14 @@
-import Link from "next/link";
-import headerStyles from '@/styles/header.module.scss';
+import headerStyles from '@/styles/header-and-nav.module.scss';
+import CategoriesMenu from '@/Components/CategoriesMenu';
 
 function MobileMenu() {
     return (
-        <nav className={headerStyles.mobileMenu}>
-            <Link href='/'>headphones</Link>
-            <Link href='/'>speakers</Link>
-            <Link href='/'>earphones</Link>
-        </nav>
+        <>
+            <div className={headerStyles.mobileMenu}>
+                <CategoriesMenu />
+            </div>
+            <div className={headerStyles.blackout}></div>
+        </>
     );
 }
 

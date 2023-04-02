@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import headerStyles from '@/styles/header.module.scss';
+import headerStyles from '@/styles/header-and-nav.module.scss';
 import mobileMenuIcon from '/public/assets/icons/icon-hamburger.svg';
 import logo from '/public/assets/logo.svg';
 import DesktopMenu from './DesktopMenu';

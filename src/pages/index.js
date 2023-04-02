@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import homeStyles from '@/styles/home.module.scss';
 import Header from '@/Components/Header';
+import CategoriesMenu from '@/Components/CategoriesMenu';
 import Footer from '@/Components/Footer';
 
 function Home() {
@@ -26,6 +27,7 @@ function Home() {
             </Link>
           </section>
         </div>
+        <CategoriesMenu />
         <Footer />
       </main>
     </>

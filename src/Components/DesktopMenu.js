@@ -1,5 +1,5 @@
 import Link from "next/link";
-import headerStyles from '@/styles/header.module.scss';
+import headerStyles from '@/styles/header-and-nav.module.scss';
 
 function DesktopMenu() {
     return (

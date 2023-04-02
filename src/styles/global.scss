@@ -8,7 +8,7 @@ body {
     font-family: 'Manrope', sans-serif;
 }
 
-h1, p {
+h1, h6, p {
     margin: 0;
 }
 
@@ -64,6 +64,18 @@ a {
         font-size: 3.5rem;
         line-height: 1.03;
         letter-spacing: 2px; 
+    }
+}
+
+.smallestHeader {
+    font-size: 1rem;
+    line-height: 1.3;
+    letter-spacing: 1.07px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    @media (min-width: 1024px) {
+        font-size: 1.125rem;
+        letter-spacing: 1.3px; 
     }
 }
 

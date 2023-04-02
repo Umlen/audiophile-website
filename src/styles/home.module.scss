@@ -3,6 +3,7 @@
     display: grid;
     align-items: start;
     min-height: 600px;
+    margin-bottom: 75px;
     &::before {
         content: "";
         position: absolute;
@@ -19,12 +20,14 @@
     }
     @media (min-width: 700px) {
         min-height: 730px;
+        margin-bottom: 90px;
         &::before {
             background-image: url(/assets/home/tablet/image-header.jpg);
             background-position: center;
         }
     }
     @media (min-width: 1024px) {
+        margin-bottom: 120px;
         &::before {
             background-image: url(/assets/home/desktop/image-header.jpg);
         }

@@ -1,0 +1,102 @@
+.header {
+    position: relative;
+    z-index: 50;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(var(--primary-white), .1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 1024px) {/*Reordering for desktop menu*/
+    .logo {
+        order: 1
+    }
+    .desktopMenu {
+        order: 2;
+    }
+    .cartIcon {
+        order: 3;
+    }
+}
+
+.mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: -24px;
+    right: -24px;
+    z-index: 100;
+    display: grid;
+    padding-top: 80px;
+    background-color: rgb(var(--primary-white));
+    border-radius: 0px 0px 8px 8px;
+    & .categoriesMenu {
+        margin-bottom: 35px;
+    }
+}
+
+.blackout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(var(--primary-black), .5);
+    z-index: -1;
+}
+
+.desktopMenu {
+    display: flex;
+    gap: 34px;
+}
+
+.categoriesMenu {
+    display: grid;
+    gap: 50px;
+    margin-bottom: 120px;
+    @media (min-width: 700px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 96px;
+    }
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 120px;
+    }
+}
+
+.categoriesMenuItem {
+    background-color: rgb(var(--primary-gray));
+    border-radius: 8px;
+    padding-bottom: 22px;
+    width: 100%;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
+
+.categoriesMenuItemImg {
+    max-width: 110px;
+    height: auto;
+    margin-top: -35px;
+    @media (min-width: 1024px) {
+        max-width: 160px;
+        margin-top: -55px;
+    }
+}
+
+.categoriesLinkWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.categoriesMenuItemLink {
+    color: rgba(var(--primary-black), .5);
+    letter-spacing: 1px;
+    margin-right: 13px;
+    &:hover {
+        color: rgb(var(--highlight-bright-color));
+    }
+}
