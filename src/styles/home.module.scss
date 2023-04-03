@@ -6,6 +6,23 @@
     opacity: .75;
 }
 
+@mixin bgImgCover() {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin gridHorizontalCenter() {
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+
+@mixin gridVerticalCenter() {
+    display: grid;
+    justify-items: center;
+    gap: 24px;
+}
+
 .sliderWrapper {
     position: relative;
     display: grid;
@@ -14,6 +31,7 @@
     margin-bottom: 75px;
     &::before {
         content: "";
+        @include bgImgCover();
         position: absolute;
         top: 0;
         bottom: 0;
@@ -21,8 +39,6 @@
         right: 0;
         z-index: -1;
         background-image: url(/assets/home/mobile/image-header.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
         background-position: bottom center;
         filter: brightness(60%);
     }
@@ -43,11 +59,9 @@
 }
 
 .slider {
-    display: grid;
+    @include gridVerticalCenter();
     justify-self: center;
-    justify-items: center;
     text-align: center;
-    gap: 24px;
     color: rgb(var(--primary-white));
     @media (min-width: 700px) {
         max-width: 400px;
@@ -82,9 +96,7 @@
     background-color: rgb(var(--highlight-bright-color));
     color: rgb(var(--primary-white));
     padding: 55px 24px;
-    display: grid;
-    justify-items: center;
-    gap: 24px;
+@include gridVerticalCenter();
     text-align: center;
     @media (min-width: 1024px) {
         grid-template-columns: 1fr 1fr;
@@ -109,15 +121,18 @@
     }
 }
 
-.higlightProductImage {
+.higlightProductImage,
+.higlightProductInfo {
     position: relative;
+    z-index: 10;
+}
+
+.higlightProductImage {
+    @include bgImgCover();
     width: 170px;
     height: 205px;
     background-image: url(/assets/home/mobile/speaker-zx9.png);
-    background-repeat: no-repeat;
-    background-size: cover;
     margin-bottom: 32px;
-    z-index: 10;
     @media (min-width: 700px) {
         width: 195px;
         height: 235px;
@@ -139,11 +154,7 @@
 }
 
 .higlightProductInfo {
-    position: relative;
-    z-index: 10;
-    display: grid;
-    gap: 24px;
-    justify-items: center;
+    @include gridVerticalCenter();
     @media (min-width: 700px) {
         max-width: 350px;
     }
@@ -157,16 +168,13 @@
 /*BgImage Section*/ 
 
 .bgImageSection {
-    display: grid;
+    @include bgImgCover();
+    @include gridHorizontalCenter();
     gap: 32px;
-    align-items: center;
-    align-content: center;
     padding-left: 24px;
     width: 100%;
     height: 325px;
     background-image: url(/assets/home/mobile/speaker-zx7.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (min-width: 700px) {
         height: 320px;
         background-image: url(/assets/home/tablet/speaker-zx7.jpg);
@@ -178,7 +186,7 @@
     }
 }
 
-/*Divided Vection*/ 
+/*Divided Section*/ 
 
 .dividedSection{
     display: grid;
@@ -193,11 +201,10 @@
 }
 
 .dividedProductImage {
+    @include bgImgCover();
     width: 100%;
     height: 200px;
     background-image: url(/assets/home/mobile/earphones-yx1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (min-width: 700px) {
         height: 320px;
         background-image: url(/assets/home/tablet/earphones-yx1.jpg);
@@ -208,16 +215,15 @@
 }
 
 .dividedProductInfo {
+    @include gridHorizontalCenter();
+    gap: 32px;
     background-color: rgb(var(--primary-gray));
     padding: 41px 0 41px 24px;
-    display: grid;
-    gap: 32px;
-    align-items: center;
-    align-content: center;
     @media (min-width: 700px) {
-        padding: 0 41px;
+        padding: 0;
+        padding-left: 41px;
     }
     @media (min-width: 1024px) {
-        padding: 0 95px;
+        padding-left: 95px;
     }
 }

@@ -1,19 +1,21 @@
 import Link from "next/link";
-import headerStyles from '@/styles/header-and-nav.module.scss';
+
+import header from '@/styles/header-and-nav.module.scss';
+import typography from '@/styles/typography.module.scss';
 
 function DesktopMenu() {
     return (
-        <nav className={headerStyles.desktopMenu} aria-label='main menu'>
-            <Link href='/' className={`upperCaseBold13px whiteLink`}>
+        <nav className={header.desktopMenu} aria-label='main menu'>
+            <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 home
             </Link>
-            <Link href='/' className={`upperCaseBold13px whiteLink`}>
+            <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 headphones
             </Link>
-            <Link href='/' className={`upperCaseBold13px whiteLink`}>
+            <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 speakers
             </Link>
-            <Link href='/' className={`upperCaseBold13px whiteLink`}>
+            <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 earphones
             </Link>
         </nav>

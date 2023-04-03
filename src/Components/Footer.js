@@ -1,35 +1,38 @@
 import Link from "next/link";
 import Image from "next/image";
-import footerStyles from '@/styles/footer.module.scss';
+
+import footer from '@/styles/footer.module.scss';
+import typography from '@/styles/typography.module.scss';
+
 import logo from '/public/assets/logo.svg';
 
 function Footer() {
     return (
-        <footer className={`lrPaddingContainer ${footerStyles.footer}`}>
-            <Image src={logo} alt='audiophile logo' className={footerStyles.logo} />
-            <nav aria-label='footer menu' className={footerStyles.menu}>
-                <Link href='/' className={`upperCaseBold13px whiteLink`}>
+        <footer className={`lrPaddingContainer ${footer.footer}`}>
+            <Image src={logo} alt='audiophile logo' className={footer.logo} />
+            <nav aria-label='footer menu' className={footer.menu}>
+                <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                     home
                 </Link>
-                <Link href='/' className={`upperCaseBold13px whiteLink`}>
+                <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                     headphones
                 </Link>
-                <Link href='/' className={`upperCaseBold13px whiteLink`}>
+                <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                     speakers
                 </Link>
-                <Link href='/' className={`upperCaseBold13px whiteLink`}>
+                <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                     earphones
                 </Link>
             </nav>
-            <p className={`baseText ${footerStyles.description}`}>
+            <p className={`${typography.baseText} ${footer.description}`}>
                 Audiophile is an all in one stop to fulfill your audio needs. 
                 We're a small team of music lovers and sound specialists who are devoted to helping 
                 you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.
             </p>
-            <p className={`baseText ${footerStyles.copyright}`}>
+            <p className={`${typography.baseText} ${footer.copyright}`}>
                 Copyright 2021. All Rights Reserved
             </p>
-            <div className={footerStyles.socialIconsContainer}>
+            <div className={footer.socialIconsContainer}>
                 <a href='https://www.facebook.com/' target='_blank'>
                     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" className='svgIcons'>
                         <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" fillRule="nonzero"/>

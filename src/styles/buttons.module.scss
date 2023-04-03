@@ -1,0 +1,33 @@
+.baseButton {
+    padding: 15px 30px 13px;
+    letter-spacing: 1px;
+    line-height: 1em;
+    text-align: center;
+    max-width: 170px;
+}
+
+.orangeButton {
+    background-color: rgb(var(--highlight-bright-color));
+    color: rgb(var(--primary-white));
+    &:hover {
+        background-color: rgb(var(--highlight-pale-color));
+    }
+}
+
+.blackButton {
+    background-color: rgb(var(--primary-black));
+    color: rgb(var(--primary-white));
+    &:hover {
+        background-color: rgb(76, 76, 76);
+    }
+}
+
+.borderedButton {
+    background-color: transparent;
+    color: rgb(var(--primary-black));
+    border: 2px solid rgb(var(--primary-black));
+    &:hover {
+        background-color: rgb(var(--primary-black));
+        color: rgb(var(--primary-white));
+    }
+}

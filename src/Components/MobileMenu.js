@@ -1,10 +1,11 @@
-import headerStyles from '@/styles/header-and-nav.module.scss';
+import header from '@/styles/header-and-nav.module.scss';
+
 import CategoriesMenu from '@/Components/CategoriesMenu';
 
 function MobileMenu() {
     return (
         <>
-            <div className={headerStyles.mobileMenu}>
+            <div className={header.mobileMenu}>
                 <CategoriesMenu />
             </div>
             <div className='blackout'></div>
