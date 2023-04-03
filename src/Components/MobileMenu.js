@@ -7,7 +7,7 @@ function MobileMenu() {
             <div className={headerStyles.mobileMenu}>
                 <CategoriesMenu />
             </div>
-            <div className={headerStyles.blackout}></div>
+            <div className='blackout'></div>
         </>
     );
 }

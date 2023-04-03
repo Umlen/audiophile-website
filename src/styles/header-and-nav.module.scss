@@ -34,16 +34,10 @@
     & .categoriesMenu {
         margin-bottom: 35px;
     }
-}
-
-.blackout {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(var(--primary-black), .5);
-    z-index: -1;
+    @media (min-width: 700px) {
+        left: -40px;
+        right: -40px;
+    }
 }
 
 .desktopMenu {
@@ -69,7 +63,6 @@
 
 .categoriesMenuItem {
     background-color: rgb(var(--primary-gray));
-    border-radius: 8px;
     padding-bottom: 22px;
     width: 100%;
     text-align: center;

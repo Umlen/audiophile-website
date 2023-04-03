@@ -9,7 +9,7 @@ import rightArrowIcon from '/public/assets/icons/icon-arrow-right.svg';
 function CategoriesMenu() {
     return (
         <nav className={`lrPaddingContainer ${headerStyles.categoriesMenu}`} aria-label='categories menu'>
-            <div className={headerStyles.categoriesMenuItem}>
+            <div className={`borderRadius ${headerStyles.categoriesMenuItem}`}>
                 <Image src={thumbHeadphones} alt='headphones icon' className={headerStyles.categoriesMenuItemImg} />
                 <h6 className='smallestHeader'>headphones</h6>
                 <div className={headerStyles.categoriesLinkWrapper} >
@@ -17,7 +17,7 @@ function CategoriesMenu() {
                     <Image src={rightArrowIcon} alt='decor' />
                 </div>
             </div>
-            <div className={headerStyles.categoriesMenuItem}>
+            <div className={`borderRadius ${headerStyles.categoriesMenuItem}`}>
                 <Image src={thumbSpeakers} alt='headphones icon' className={headerStyles.categoriesMenuItemImg} />
                 <h6 className='smallestHeader'>speakers</h6>
                 <div className={headerStyles.categoriesLinkWrapper} >
@@ -25,7 +25,7 @@ function CategoriesMenu() {
                     <Image src={rightArrowIcon} alt='decor' />
                 </div>
             </div>
-            <div className={headerStyles.categoriesMenuItem}>
+            <div className={`borderRadius ${headerStyles.categoriesMenuItem}`}>
                 <Image src={thumbEarphones} alt='headphones icon' className={headerStyles.categoriesMenuItemImg} />
                 <h6 className='smallestHeader'>earphones</h6>
                 <div className={headerStyles.categoriesLinkWrapper} >
