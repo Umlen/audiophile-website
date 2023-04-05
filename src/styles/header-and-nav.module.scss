@@ -1,3 +1,24 @@
+.headerWrapper {/*Not for home page*/
+    position: relative;
+    background-color: rgb(var(--primary-black));
+    margin-bottom: 64px;
+    @media (min-width: 700px) {
+        margin-bottom: 120px;
+    }
+    @media (min-width: 1280px) {
+        margin-bottom: 160px;
+    }
+}
+
+.pageTitle {/*Not for home page*/
+    color: rgb(var(--primary-white));
+    text-align: center;
+    padding: 32px 0;
+    @media (min-width: 700px) {
+        padding: 95px 0;
+    }
+}
+
 .header {
     position: relative;
     z-index: 50;

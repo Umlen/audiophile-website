@@ -14,7 +14,7 @@ function Footer() {
                 <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
                     home
                 </Link>
-                <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
+                <Link href='/headphones' className={`whiteLink ${typography.upperCaseBold13px}`}>
                     headphones
                 </Link>
                 <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>

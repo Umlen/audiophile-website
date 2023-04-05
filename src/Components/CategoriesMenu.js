@@ -16,7 +16,7 @@ function CategoriesMenu() {
                 <Image src={thumbHeadphones} alt='headphones icon' className={header.categoriesMenuItemImg} />
                 <h6 className={typography.smallestHeader}>headphones</h6>
                 <div className={header.categoriesLinkWrapper} >
-                    <Link href='/' className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
+                    <Link href='/headphones' className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
                         shop
                     </Link>
                     <Image src={rightArrowIcon} alt='decor' />
