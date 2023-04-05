@@ -12,10 +12,10 @@ function DesktopMenu() {
             <Link href='/headphones' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 headphones
             </Link>
-            <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
+            <Link href='/speakers' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 speakers
             </Link>
-            <Link href='/' className={`whiteLink ${typography.upperCaseBold13px}`}>
+            <Link href='/earphones' className={`whiteLink ${typography.upperCaseBold13px}`}>
                 earphones
             </Link>
         </nav>

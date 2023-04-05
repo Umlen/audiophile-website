@@ -26,7 +26,7 @@ function CategoriesMenu() {
                 <Image src={thumbSpeakers} alt='headphones icon' className={header.categoriesMenuItemImg} />
                 <h6 className={typography.smallestHeader}>speakers</h6>
                 <div className={header.categoriesLinkWrapper} >
-                    <Link href='/' className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
+                    <Link href='/speakers' className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
                         shop
                     </Link>
                     <Image src={rightArrowIcon} alt='decor' />
@@ -36,7 +36,7 @@ function CategoriesMenu() {
                 <Image src={thumbEarphones} alt='headphones icon' className={header.categoriesMenuItemImg} />
                 <h6 className={typography.smallestHeader}>earphones</h6>
                 <div className={header.categoriesLinkWrapper} >
-                    <Link href='/' className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
+                    <Link href='/earphones' className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
                         shop
                     </Link>
                     <Image src={rightArrowIcon} alt='decor' />
