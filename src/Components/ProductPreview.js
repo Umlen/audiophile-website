@@ -5,7 +5,7 @@ import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
 import productStyles from '@/styles/product.module.scss';
 
-function Product(props) {
+function ProductPreview(props) {
     const [imageDimension, setImageDimension] = useState('mobile');
     const products = props.products;
 
@@ -47,7 +47,10 @@ function Product(props) {
                         }
                         <h2 className={typography.bigHeader}>{product.name}</h2>
                         <p className={typography.baseText}>{product.description}</p>
-                        <Link href='/' className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}>
+                        <Link             
+                            href={`/${product.slug}`} 
+                            className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
+                        >
                             see product
                         </Link>
                     </div>
@@ -59,4 +62,4 @@ function Product(props) {
     return createProductsEl();
 }
 
-export default Product;
+export default ProductPreview;

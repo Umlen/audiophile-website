@@ -1,19 +1,19 @@
 import Head from 'next/head';
 
-import products from '../products';
+import productsData from '@/data/products';
 
 import header from '@/styles/header-and-nav.module.scss';
 import typography from '@/styles/typography.module.scss';
 
 import Header from '@/Components/Header';
-import Product from '@/Components/Product';
+import ProductPreview from '@/Components/ProductPreview';
 import CategoriesMenu from '@/Components/CategoriesMenu';
 import About from '@/Components/About';
 import Footer from '@/Components/Footer';
 
 function Earphones() {
     function productsCategoryFilter() {
-        return products.filter(({category}) => category === 'earphones');
+        return productsData.filter(({category}) => category === 'earphones');
     }
 
     return (
@@ -27,7 +27,7 @@ function Earphones() {
                 <h1 className={`${header.pageTitle} ${typography.bigHeader}`}>earphones</h1>
             </div>
             <main className='lrPaddingContainer'>
-                <Product products={productsCategoryFilter()} />
+                <ProductPreview products={productsCategoryFilter()} />
             </main>
             <CategoriesMenu />
             <About />

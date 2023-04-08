@@ -29,8 +29,11 @@ function Home() {
             Experience natural, lifelike audio and exceptional build 
             quality made for the passionate music enthusiast.
           </p>
-          <Link href='/' className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}>
-              see product
+          <Link 
+            href='/xx99-mark-two-headphones' 
+            className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
+          >
+            see product
           </Link>
         </section>
       </div>
@@ -44,14 +47,20 @@ function Home() {
             <p className={typography.baseText}>
               Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
             </p>
-            <Link href='/' className={`${buttons.baseButton} ${buttons.blackButton} ${typography.upperCaseBold13px}`}>
+            <Link 
+              href='/zx9-speaker' 
+              className={`${buttons.baseButton} ${buttons.blackButton} ${typography.upperCaseBold13px}`}
+            >
               see product
             </Link>
           </div>
         </section>
         <section className={`borderRadius ${home.bgImageSection}`}>
           <h2 className={typography.smallHeader}>zx7 speaker</h2>
-          <Link href='/' className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}>
+          <Link 
+            href='/zx7-speaker' 
+            className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}
+          >
             see product
           </Link>
         </section>
@@ -59,7 +68,10 @@ function Home() {
           <div className={`borderRadius ${home.dividedProductImage}`}></div>
           <div className={`borderRadius ${home.dividedProductInfo}`}>
             <h2 className={typography.smallHeader}>yx1 earphones</h2>
-            <Link href='/' className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}>
+            <Link 
+              href='/yx1-earphones' 
+              className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}
+            >
               see product
             </Link>
           </div>

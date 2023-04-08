@@ -1,19 +1,19 @@
 import Head from 'next/head';
 
-import products from '../products';
+import productsData from '@/data/products';
 
 import header from '@/styles/header-and-nav.module.scss';
 import typography from '@/styles/typography.module.scss';
 
 import Header from '@/Components/Header';
-import Product from '@/Components/Product';
+import Product from '@/Components/ProductPreview';
 import CategoriesMenu from '@/Components/CategoriesMenu';
 import About from '@/Components/About';
 import Footer from '@/Components/Footer';
 
 function Headphones() {
     function productsCategoryFilter() {
-        return products.filter(({category}) => category === 'headphones');
+        return productsData.filter(({category}) => category === 'headphones');
     }
 
     return (
