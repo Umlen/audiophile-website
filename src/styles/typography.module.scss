@@ -1,3 +1,7 @@
+.lineBreak {
+    white-space: pre-line;
+}
+
 .highlightText {
     color: rgb(var(--highlight-bright-color));
 }
@@ -11,7 +15,8 @@
 .widespaceText,
 .upperCaseBold13px,
 .largeHeader, .bigHeader,
-.smallHeader, .smallestHeader {
+.mediumHeader, .smallHeader, 
+.smallestHeader {
     text-transform: uppercase;
 }
 
@@ -48,6 +53,17 @@
         font-size: 2.5rem;
         line-height: 1.03;
         letter-spacing: 1.43px; 
+    }
+}
+
+.mediumHeader {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: .9px;
+    @media (min-width: 700px) {
+        font-size: 2rem;
+        line-height: 1.125;
+        letter-spacing: 1.15px;
     }
 }
 

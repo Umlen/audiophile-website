@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
-import productStyles from '@/styles/product.module.scss';
+import productStyles from '@/styles/product-preview.module.scss';
 
 function ProductPreview(props) {
     const [imageDimension, setImageDimension] = useState('mobile');

@@ -1,56 +1,155 @@
-.product {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    margin-bottom: 120px;
-    &:last-child {
-        margin-bottom: 150px; 
-    }
+.goBackLink {
+    margin-top: -48px;
+    margin-bottom: 24px;
     @media (min-width: 700px) {
-        gap: 52px;
-    }
-    @media (min-width: 1024px) {
-        flex-direction: row;
-        &:nth-child(2n + 1) {
-            flex-direction: row-reverse;
-        }
+        margin-top: -90px;
     }
     @media (min-width: 1280px) {
-        margin-bottom: 150px;
-        gap: 125px;
-        &:last-child {
-            margin-bottom: 180px; 
-        }
+        margin-top: -80px;
+        margin-bottom: 56px;
     }
 }
 
-.image {
+.container {
+    display: grid;
+    gap: 88px;
+    margin-bottom: 120px;
+    @media (min-width: 1280px) {
+        margin-bottom: 160px;
+        grid-template-columns: 57% 30%;
+        align-items: start;
+        justify-content: space-between;
+        grid-template-areas: 
+            "preview preview"
+            "features includes"
+            "gallery gallery"
+            "others others";
+    }
+}
+
+.gapContainer {
+    display: grid;
+    gap: 24px;
+}
+
+.marginRight {
+    margin-right: 20px;
+    opacity: 1;
+    @media (min-width: 700px) {
+        margin-right: 24px;
+    }
+}
+
+.previewSection {
+    display: grid;
+    gap: 32px;
+    @media (min-width: 700px) {
+        grid-template-columns: 281px auto;
+        gap: 70px;
+        align-items: center;
+    }
+    @media (min-width: 1280px) {
+        grid-template-columns: 540px auto;
+        gap: 125px;
+        grid-area: preview;
+    }
+}
+
+.mainImage {
+    width: 100%;
+    height: 327px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 100%;
-    height: 352px;
-    @media (min-width: 1024px) {
-        width: 420px;
-        height: 435px;
-        flex-shrink: 0;
+    @media (min-width: 700px) {
+        height: 480px;
     }
     @media (min-width: 1280px) {
-        width: 540px;
         height: 560px;
     }
 }
 
-.info {
+.featuresSection {
+    @media (min-width: 1280px) {
+        grid-area: features;
+    }
+}
+
+.includesSection {
+    @media (min-width: 700px) and (max-width: 1279px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: 1280px) {
+        grid-area: includes;
+    }
+}
+
+.gallery {
     display: grid;
-    justify-items: center;
-    gap: 24px;
+    grid-template-rows: 174px 174px 368px;
+    gap: 20px;
+    @media (min-width: 700px) {
+        grid-template-rows: 174px 174px;
+        grid-template-columns: 40% auto;
+        grid-template-areas: 
+            "smallImg bigImg"
+            "smallImg bigImg";
+    }
+    @media (min-width: 1280px) {
+        grid-template-rows: 280px 280px;
+        gap: 30px;
+        grid-area: gallery;
+    }
+}
+
+.galleryImage {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media (min-width: 700px) {
+        &:nth-child(3) {
+            grid-area: bigImg;
+        }
+    }
+}
+
+.othersSection {
     text-align: center;
-    @media (min-width: 1024px) {
-        gap: 32px;
-        text-align: left;
-        justify-items: start;
-        max-width: 100%;
+    @media (min-width: 1280px) {
+        grid-area: others;
+    }
+}
+
+.othersContainer {
+    display: grid;
+    gap: 56px;
+    @media (min-width: 700px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    @media (min-width: 1280px) {
+        gap: 30px;
+    }
+}
+
+.otherItemWrapper {
+    display: grid;
+    gap: 32px;
+    justify-items: center;
+    @media (min-width: 700px) {
+        gap: 40px;
+    }
+}
+
+.othersImg {
+    width: 100%;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media (min-width: 700px) {
+        height: 320px;
     }
 }
