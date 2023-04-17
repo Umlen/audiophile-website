@@ -3,7 +3,10 @@ const productsData = [
     "id": 1,
     "slug": "yx1-earphones",
     "name": "YX1 Wireless Earphones",
-    "shortName": "YX1",
+    "cart": {
+      "cartName": "YX1",
+      "cartImage": "/assets/cart/image-yx1-earphones.jpg"
+    },
     "image": {
       "mobile": "./assets/product-yx1-earphones/mobile/image-product.jpg",
       "tablet": "./assets/product-yx1-earphones/tablet/image-product.jpg",
@@ -92,7 +95,10 @@ const productsData = [
     "id": 2,
     "slug": "xx59-headphones",
     "name": "XX59 Headphones",
-    "shortName": "XX59",
+    "cart": {
+      "cartName": "XX59",
+      "cartImage": "/assets/cart/image-xx59-headphones.jpg"
+    },
     "image": {
       "mobile": "./assets/product-xx59-headphones/mobile/image-product.jpg",
       "tablet": "./assets/product-xx59-headphones/tablet/image-product.jpg",
@@ -177,7 +183,10 @@ const productsData = [
     "id": 3,
     "slug": "xx99-mark-one-headphones",
     "name": "XX99 Mark I Headphones",
-    "shortName": "XX99 MK I",
+    "cart": {
+      "cartName": "XX99 MK I",
+      "cartImage": "/assets/cart/image-xx99-mark-one-headphones.jpg"
+    },
     "image": {
       "mobile": "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
       "tablet": "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
@@ -262,7 +271,10 @@ const productsData = [
     "id": 4,
     "slug": "xx99-mark-two-headphones",
     "name": "XX99 Mark II Headphones",
-    "shortName": "XX99 MK II",
+    "cart": {
+      "cartName": "XX99 MK II",
+      "cartImage": "/assets/cart/image-xx99-mark-two-headphones.jpg"
+    },
     "image": {
       "mobile": "./assets/product-xx99-mark-two-headphones/mobile/image-product.jpg",
       "tablet": "./assets/product-xx99-mark-two-headphones/tablet/image-product.jpg",
@@ -351,7 +363,10 @@ const productsData = [
     "id": 5,
     "slug": "zx7-speaker",
     "name": "ZX7 Speaker",
-    "shortName": "ZX7",
+    "cart": {
+      "cartName": "ZX7",
+      "cartImage": "/assets/cart/image-zx7-speaker.jpg"
+    },
     "image": {
       "mobile": "./assets/product-zx7-speaker/mobile/image-product.jpg",
       "tablet": "./assets/product-zx7-speaker/tablet/image-product.jpg",
@@ -440,7 +455,10 @@ const productsData = [
     "id": 6,
     "slug": "zx9-speaker",
     "name": "ZX9 Speaker",
-    "shortName": "ZX9",
+    "cart": {
+      "cartName": "ZX9",
+      "cartImage": "/assets/cart/image-zx9-speaker.jpg"
+    },
     "image": {
       "mobile": "./assets/product-zx9-speaker/mobile/image-product.jpg",
       "tablet": "./assets/product-zx9-speaker/tablet/image-product.jpg",

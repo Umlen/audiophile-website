@@ -1,0 +1,11 @@
+.cartContainer {
+    background-color: rgb(var(--primary-white));
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateY(24px);
+    padding: 32px 28px;
+    border-radius: 8px;
+}

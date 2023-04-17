@@ -3,7 +3,7 @@ import productStyle from '@/styles/product.module.scss';
 
 function QuantityControlsBox(props) {
     return (
-        <div className={productStyle.quantityWrapper}>
+        <div className={productStyle.quantityWrapper} id={props.id}>
             <button className={buttons.quantityControlButtons} onClick={props.minusBtnHandler}>
                 -
             </button>

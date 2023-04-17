@@ -82,9 +82,10 @@ function Product({product}) {
             } else {
                 const productObj = {
                     id: product.id,
-                    name: product.shortName,
+                    name: product.cart.cartName,
                     price: product.price,
-                    quantity: quantity
+                    quantity: quantity,
+                    image: product.cart.cartImage
                 };
 
                 cart.push(productObj);
@@ -93,9 +94,10 @@ function Product({product}) {
         } else {
             const productObj = {
                 id: product.id,
-                name: product.shortName,
+                name: product.cart.cartName,
                 price: product.price,
-                quantity: quantity
+                quantity: quantity,
+                image: product.cart.cartImage
             };
             const cart = [];
 
@@ -117,10 +119,6 @@ function Product({product}) {
         }
 
         return isDuplicateFound;
-    }
-
-    function clearCart() {
-        localStorage.clear();
     }
 
     return (
@@ -162,6 +160,7 @@ function Product({product}) {
                         </p>
                         <div className={productStyle.addToCartContainer}>
                             <QuantityControlsBox 
+                                id={product.id}
                                 quantity={quantity} 
                                 minusBtnHandler={decreaseQuantity}
                                 plusBtnHandler={increaseQuantity}
@@ -171,12 +170,6 @@ function Product({product}) {
                                 onClick={addToCart}
                             >
                                 add to cart
-                            </button>
-                            <button 
-                                className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
-                                onClick={clearCart}
-                            >
-                                clear cart
                             </button>
                         </div>
                     </div>
