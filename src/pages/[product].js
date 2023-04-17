@@ -50,6 +50,10 @@ function Product({product}) {
         return(() => window.removeEventListener('resize', choseImageDimension));
     }, []);
 
+    useEffect(() => {
+        setQuantity(1);
+    }, [product]);
+
     function increaseQuantity() {
         setQuantity(prev => prev + 1);
     }
@@ -58,6 +62,65 @@ function Product({product}) {
         if (quantity > 0) {
             setQuantity(prev => prev - 1);
         }
+    }
+
+    function addToCart() {
+        if (localStorage.length !== 0) {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+
+            if (searchDuplicate(cart)) {
+                for(let i = 0; i < cart.length; i++) {
+                    if(cart[i].id === product.id) {
+                        cart[i] = {
+                            ...cart[i],
+                            quantity: cart[i].quantity + quantity
+                        };
+                        break;
+                    }
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+            } else {
+                const productObj = {
+                    id: product.id,
+                    name: product.shortName,
+                    price: product.price,
+                    quantity: quantity
+                };
+
+                cart.push(productObj);
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        } else {
+            const productObj = {
+                id: product.id,
+                name: product.shortName,
+                price: product.price,
+                quantity: quantity
+            };
+            const cart = [];
+
+            cart.push(productObj);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        console.log(cart);
+    }
+
+    function searchDuplicate(cartArr) {
+        let isDuplicateFound = false;
+
+        for(let i = 0; i < cartArr.length; i++) {
+            if(cartArr[i].id === product.id) {
+                isDuplicateFound = !isDuplicateFound;
+                break;
+            }
+        }
+
+        return isDuplicateFound;
+    }
+
+    function clearCart() {
+        localStorage.clear();
     }
 
     return (
@@ -105,8 +168,15 @@ function Product({product}) {
                             />
                             <button 
                                 className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
+                                onClick={addToCart}
                             >
                                 add to cart
+                            </button>
+                            <button 
+                                className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
+                                onClick={clearCart}
+                            >
+                                clear cart
                             </button>
                         </div>
                     </div>
