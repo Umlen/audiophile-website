@@ -31,3 +31,13 @@
         color: rgb(var(--primary-white));
     }
 }
+
+.quantityControlButtons {
+    padding: 0;
+    opacity: .25;
+    cursor: pointer;
+    &:hover {
+        color: rgb(var(--highlight-bright-color));
+        opacity: 1;
+    }
+}

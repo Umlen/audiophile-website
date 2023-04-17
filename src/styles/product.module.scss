@@ -1,3 +1,10 @@
+@mixin backgroundImage() {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .goBackLink {
     margin-top: -48px;
     margin-bottom: 24px;
@@ -56,17 +63,35 @@
 }
 
 .mainImage {
-    width: 100%;
+    @include backgroundImage();
     height: 327px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     @media (min-width: 700px) {
         height: 480px;
     }
     @media (min-width: 1280px) {
         height: 560px;
     }
+}
+
+.addToCartContainer{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.quantityWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    align-items: baseline;
+    gap: 20px;
+    height: 100%;
+    padding: 0 15px;
+    font-size: .815rem;
+    font-weight: 700;
+    line-height: 1.3em;
+    letter-spacing: 1px;
+    background-color: rgb(var(--primary-gray));
 }
 
 .featuresSection {
@@ -103,11 +128,8 @@
 }
 
 .galleryImage {
-    width: 100%;
+    @include backgroundImage();
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     @media (min-width: 700px) {
         &:nth-child(3) {
             grid-area: bigImg;
@@ -144,11 +166,8 @@
 }
 
 .othersImg {
-    width: 100%;
+    @include backgroundImage();
     height: 120px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     @media (min-width: 700px) {
         height: 320px;
     }

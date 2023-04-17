@@ -13,6 +13,10 @@ import Header from '@/Components/Header';
 import CategoriesMenu from '@/Components/CategoriesMenu';
 import About from '@/Components/About';
 import Footer from '@/Components/Footer';
+import IncludesElements from '@/Components/products/IncludesElements';
+import OthersElements from '@/Components/products/OthersElements';
+import ProductGallery from '@/Components/products/ProductGallery';
+import QuantityControlsBox from '@/Components/QuantityControlsBox';
 
 
 export async function getStaticPaths() {
@@ -29,6 +33,7 @@ export async function getStaticProps({params}) {
 
 function Product({product}) {
     const [imageDimension, setImageDimension] = useState('mobile');
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         function choseImageDimension() {
@@ -45,57 +50,14 @@ function Product({product}) {
         return(() => window.removeEventListener('resize', choseImageDimension));
     }, []);
 
-    function createIncludesElements({includes}) {
-        return includes.map((item, key) => {
-            return (
-                <p key={key}>
-                    <span className={`${typography.baseText} ${typography.highlightText} ${productStyle.marginRight}`}>
-                        {item.quantity}x
-                    </span> 
-                    <span className={typography.baseText}>
-                        {item.item}
-                    </span>
-                </p>
-            );
-        });
+    function increaseQuantity() {
+        setQuantity(prev => prev + 1);
     }
 
-    function createGallery({gallery}) {
-        const galleryImages = [];
-        for (let key in gallery) {
-            if (gallery.hasOwnProperty(key)) {
-                galleryImages.push (
-                    <div
-                        key={key}
-                        className={`borderRadius ${productStyle.galleryImage}`}
-                        style={{backgroundImage: `url(${gallery[key][imageDimension]})`}}
-                    >
-                    </div>
-                );
-            }
+    function decreaseQuantity() {
+        if (quantity > 0) {
+            setQuantity(prev => prev - 1);
         }
-        return galleryImages;
-    }
-
-    function createOthersElements({others}) {
-        return others.map((item, key)=> {
-            return (
-                <div key={key} className={productStyle.otherItemWrapper}>
-                    <div
-                        className={`borderRadius ${productStyle.othersImg}`}
-                        style={{backgroundImage: `url(${item.image[imageDimension]})`}}
-                    >
-                    </div>
-                    <h3 className={typography.smallHeader}>{item.name}</h3>
-                    <Link 
-                        href={`/${item.slug}`}
-                        className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
-                    >
-                        see product
-                    </Link>
-                </div>
-            );
-        });
     }
 
     return (
@@ -135,7 +97,18 @@ function Product({product}) {
                         <p className={`${typography.upperCaseBold13px} ${typography.smallestHeader}`}>
                             $ {product.price}
                         </p>
-                        <div>{/*add to cart*/}</div>
+                        <div className={productStyle.addToCartContainer}>
+                            <QuantityControlsBox 
+                                quantity={quantity} 
+                                minusBtnHandler={decreaseQuantity}
+                                plusBtnHandler={increaseQuantity}
+                            />
+                            <button 
+                                className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
+                            >
+                                add to cart
+                            </button>
+                        </div>
                     </div>
                 </section>
                 <section className={`${productStyle.gapContainer} ${productStyle.featuresSection}`}>
@@ -144,21 +117,9 @@ function Product({product}) {
                         {product.features}
                     </p>
                 </section>
-                <section className={`${productStyle.gapContainer} ${productStyle.includesSection}`}>
-                    <h2 className={typography.mediumHeader}>in the box</h2>
-                    <div>
-                        {createIncludesElements(product)}
-                    </div>
-                </section>
-                <div className={productStyle.gallery}>
-                    {createGallery(product)}
-                </div>
-                <section className={`${productStyle.gapContainer} ${productStyle.othersSection}`}>
-                    <h2 className={typography.mediumHeader}>you may also like</h2>
-                    <div className={productStyle.othersContainer}>
-                        {createOthersElements(product)}
-                    </div>
-                </section>
+                <IncludesElements includes={product.includes} />
+                <ProductGallery gallery={product.gallery} imageDimension={imageDimension} />
+                <OthersElements others={product.others} imageDimension={imageDimension} />
             </main>
             <CategoriesMenu />
             <About />
