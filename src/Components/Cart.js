@@ -10,6 +10,7 @@ import QuantityControlsBox from './QuantityControlsBox';
 
 function Cart() {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cart')));
+
     const productsInCart = cartItems ? cartItems.length : 0;
     const totalPrice = cartItems ? calculateTotalPrice(cartItems) : 0;
     const productsElements = cartItems ? createProductsElements(cartItems) : undefined;
@@ -19,24 +20,6 @@ function Cart() {
             const multiply = price * quantity;
             return total = total + multiply;
         }, 0);
-    }
-
-    function createProductsElements(cartArr) {
-        return cartArr.map((product, key) => {
-            return (
-                <div key={key}>
-                    <Image src={product.image} alt={product.name} width={64} height={64} />
-                    <h4>{product.name}</h4>
-                    <p>$ {product.price}</p>
-                    <QuantityControlsBox 
-                        id={product.id}
-                        quantity={product.quantity}
-                        minusBtnHandler={(e) => decreaseQuantity(e)}
-                        plusBtnHandler={(e) => increaseQuantity(e)}
-                    />
-                </div>
-            );
-        });
     }
 
     function increaseQuantity(e) {
@@ -76,19 +59,48 @@ function Cart() {
         setCartItems(JSON.parse(localStorage.getItem('cart')));
     }
 
+    function createProductsElements(cartArr) {
+        return cartArr.map((product, key) => {
+            return (
+                <div key={key} className={cartStyles.flexContainer}>
+                    <Image className='borderRadius' src={product.image} alt={product.name} width={64} height={64} />
+                    <div className={cartStyles.productInfoWrapper}>
+                        <p className={`${typography.baseText} ${typography.noOpacityText} ${typography.boldText}`}>{product.name}</p>
+                        <p className={`${typography.baseText} ${typography.boldText}`}>$ {product.price}</p>
+                    </div>
+                    <QuantityControlsBox 
+                        class={cartStyles.quantityWrapper}
+                        id={product.id}
+                        quantity={product.quantity}
+                        minusBtnHandler={(e) => decreaseQuantity(e)}
+                        plusBtnHandler={(e) => increaseQuantity(e)}
+                    />
+                </div>
+            );
+        });
+    }
+
     return (
         <>
-            <div className={cartStyles.cartContainer}>
-                <div>
-                    <h2>Cart ({productsInCart})</h2>
-                    <p onClick={clearCart}>Remove all</p>
-                </div>
-                <div>
-                    <p>Total</p>
-                    <p>$ {totalPrice}</p>
+            <div className={`borderRadius ${cartStyles.cartContainer}`}>
+                <div className={cartStyles.flexContainer}>
+                    <h2 className={typography.bold18px}>Cart ({productsInCart})</h2>
+                    <button 
+                        onClick={clearCart}
+                        className={`${typography.baseText} ${cartStyles.removeBtn}`}
+                    >
+                        Remove all
+                    </button>
                 </div>
                 {productsElements}
-                <Link href='/'>
+                <div className={cartStyles.flexContainer}>
+                    <p className={`${typography.baseText} ${typography.uppercaseText}`}>Total</p>
+                    <p className={typography.bold18px}>$ {totalPrice}</p>
+                </div>
+                <Link 
+                    href='/'
+                    className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px} ${buttons.fullWidthBtn}`}
+                >
                     checkout
                 </Link>
             </div>

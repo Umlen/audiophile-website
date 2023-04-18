@@ -16,7 +16,8 @@
 .upperCaseBold13px,
 .largeHeader, .bigHeader,
 .mediumHeader, .smallHeader, 
-.smallestHeader {
+.smallestHeader, .bold18px,
+.uppercaseText {
     text-transform: uppercase;
 }
 
@@ -27,6 +28,21 @@
 
 .upperCaseBold13px {
     font-size: .8rem;
+    font-weight: 700;
+}
+
+.noOpacityText {
+    opacity: 1;
+}
+
+.boldText {
+    font-weight: 700;
+}
+
+.bold18px {
+    font-size: 1.125rem;
+    line-height: 1.33;
+    letter-spacing: 1.3px;
     font-weight: 700;
 }
 

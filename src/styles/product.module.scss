@@ -79,19 +79,22 @@
     gap: 16px;
 }
 
-.quantityWrapper {
+.baseQuantityWrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-content: center;
     align-items: baseline;
-    gap: 20px;
-    height: 100%;
-    padding: 0 15px;
     font-size: .815rem;
     font-weight: 700;
     line-height: 1.3em;
     letter-spacing: 1px;
     background-color: rgb(var(--primary-gray));
+}
+
+.quantityWrapper {
+    gap: 20px;
+    height: 100%;
+    padding: 0 15px;
 }
 
 .featuresSection {

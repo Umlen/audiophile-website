@@ -164,6 +164,7 @@ function Product({product}) {
                                 quantity={quantity} 
                                 minusBtnHandler={decreaseQuantity}
                                 plusBtnHandler={increaseQuantity}
+                                class={productStyle.quantityWrapper}
                             />
                             <button 
                                 className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
