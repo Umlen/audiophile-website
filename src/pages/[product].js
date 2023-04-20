@@ -59,7 +59,7 @@ function Product({ product }) {
   }
 
   function decreaseQuantity() {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(prev => prev - 1);
     }
   }
@@ -130,57 +130,57 @@ function Product({ product }) {
       <div className={`lrPaddingContainer ${header.headerWrapper}`}>
         <Header />
       </div>
-      <div className='lrPaddingContainer goBackLink'>
-        <Link href={`/${product.category}`} className={`blackLink ${typography.baseText}`}>
+      <main className={`lrPaddingContainer ${productStyle.paddingTopContainer}`}>
+        <Link href={`/${product.category}`} className={`blackLink goBackLink ${typography.baseText}`}>
           Go Back
         </Link>
-      </div>
-      <main className={`lrPaddingContainer ${productStyle.container}`}>
-        <section className={productStyle.previewSection}>
-          <div
-            className={`borderRadius ${productStyle.mainImage}`}
-            style={{ backgroundImage: `url(${product.image[imageDimension]})` }}
-          >
-            {/*product image*/}
-          </div>
-          <div className={productStyle.gapContainer}>
-            {
-              product.new &&
-              <p className={`${typography.widespaceText} ${typography.highlightText}`}>
-                new product
-              </p>
-            }
-            <h1 className={typography.bigHeader}>{product.name}</h1>
-            <p className={typography.baseText}>{product.description}</p>
-            <p className={`${typography.upperCaseBold13px} ${typography.smallestHeader}`}>
-              $ {product.price}
-            </p>
-            <div className={productStyle.addToCartContainer}>
-              <QuantityControlsBox
-                id={product.id}
-                quantity={quantity}
-                minusBtnHandler={decreaseQuantity}
-                plusBtnHandler={increaseQuantity}
-                class={productStyle.quantityWrapper}
-              />
-              <button
-                className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
-                onClick={addToCart}
-              >
-                add to cart
-              </button>
+        <div className= {productStyle.gridContainer}>
+          <section className={productStyle.previewSection}>
+            <div
+              className={`borderRadius ${productStyle.mainImage}`}
+              style={{ backgroundImage: `url(${product.image[imageDimension]})` }}
+            >
+              {/*product image*/}
             </div>
-          </div>
-        </section>
-        <section className={`${productStyle.gapContainer} ${productStyle.featuresSection}`}>
-          <h2 className={typography.mediumHeader}>features</h2>
-          <p className={`${typography.baseText} ${typography.lineBreak}`}>
-            {product.features}
-          </p>
-        </section>
-        <IncludesElements includes={product.includes} />
-        <ProductGallery gallery={product.gallery} imageDimension={imageDimension} />
-        <OthersElements others={product.others} imageDimension={imageDimension} />
+            <div className={productStyle.gapContainer}>
+              {
+                product.new &&
+                <p className={`${typography.widespaceText} ${typography.highlightText}`}>
+                  new product
+                </p>
+              }
+              <h1 className={typography.bigHeader}>{product.name}</h1>
+              <p className={typography.baseText}>{product.description}</p>
+              <p className={`${typography.upperCaseBold13px} ${typography.smallestHeader}`}>
+                $ {product.price}
+              </p>
+              <div className={productStyle.addToCartContainer}>
+                <QuantityControlsBox
+                  id={product.id}
+                  quantity={quantity}
+                  minusBtnHandler={decreaseQuantity}
+                  plusBtnHandler={increaseQuantity}
+                  class={productStyle.quantityWrapper}
+                />
+                <button
+                  className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
+                  onClick={addToCart}
+                >
+                  add to cart
+                </button>
+              </div>
+            </div>
+          </section>
+          <section className={`${productStyle.gapContainer} ${productStyle.featuresSection}`}>
+            <h2 className={typography.mediumHeader}>features</h2>
+            <p className={`${typography.baseText} ${typography.lineBreak}`}>
+              {product.features}
+            </p>
+          </section>
+          <IncludesElements includes={product.includes} />
+          <ProductGallery gallery={product.gallery} imageDimension={imageDimension} />
+          <OthersElements others={product.others} imageDimension={imageDimension} />
+        </div>
       </main>
       <CategoriesMenu />
       <About />

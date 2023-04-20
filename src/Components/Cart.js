@@ -42,7 +42,7 @@ function Cart() {
   function decreaseQuantity(e) {
     const newCartItems = cartItems.map(item => {
       const currentId = Number(e.currentTarget.parentNode.id);
-      if (currentId === item.id) {
+      if (currentId === item.id && item.quantity > 0) {
         return {
           ...item,
           quantity: item.quantity - 1

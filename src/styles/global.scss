@@ -99,15 +99,10 @@ button {
 }
 
 .goBackLink {
-  padding-top: 48px;
+  display: inline-block;
   margin-bottom: 24px;
 
-  @media (min-width: 700px) {
-    padding-top: 90px;
-  }
-
   @media (min-width: 1280px) {
-    padding-top: 80px;
     margin-bottom: 56px;
   }
 }

@@ -5,7 +5,19 @@
   background-position: center;
 }
 
-.container {
+.paddingTopContainer {
+  padding-top: 48px;
+
+  @media (min-width: 700px) {
+    padding-top: 90px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 80px;
+  }
+}
+
+.gridContainer {
   display: grid;
   gap: 88px;
   margin-bottom: 120px;
