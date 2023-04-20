@@ -1,229 +1,255 @@
 .superLowOpacity {
-    opacity: .5;
+  opacity: .5;
 }
 
 .lowOpacity {
-    opacity: .75;
+  opacity: .75;
 }
 
 @mixin bgImgCover() {
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @mixin gridHorizontalCenter() {
-    display: grid;
-    align-items: center;
-    align-content: center;
+  display: grid;
+  align-items: center;
+  align-content: center;
 }
 
 @mixin gridVerticalCenter() {
-    display: grid;
-    justify-items: center;
-    gap: 24px;
+  display: grid;
+  justify-items: center;
+  gap: 24px;
 }
 
 .sliderWrapper {
-    position: relative;
-    display: grid;
-    align-items: start;
-    min-height: 600px;
-    margin-bottom: 75px;
+  position: relative;
+  display: grid;
+  align-items: start;
+  min-height: 600px;
+  margin-bottom: 75px;
+
+  &::before {
+    content: "";
+    @include bgImgCover();
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url(/assets/home/mobile/image-header.jpg);
+    background-position: bottom center;
+    filter: brightness(60%);
+  }
+
+  @media (min-width: 700px) {
+    min-height: 730px;
+    margin-bottom: 90px;
+
     &::before {
-        content: "";
-        @include bgImgCover();
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        background-image: url(/assets/home/mobile/image-header.jpg);
-        background-position: bottom center;
-        filter: brightness(60%);
+      background-image: url(/assets/home/tablet/image-header.jpg);
+      background-position: center;
     }
-    @media (min-width: 700px) {
-        min-height: 730px;
-        margin-bottom: 90px;
-        &::before {
-            background-image: url(/assets/home/tablet/image-header.jpg);
-            background-position: center;
-        }
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 120px;
+
+    &::before {
+      background-image: url(/assets/home/desktop/image-header.jpg);
     }
-    @media (min-width: 1024px) {
-        margin-bottom: 120px;
-        &::before {
-            background-image: url(/assets/home/desktop/image-header.jpg);
-        }
-    }
+  }
 }
 
 .slider {
-    @include gridVerticalCenter();
-    justify-self: center;
-    text-align: center;
-    color: rgb(var(--primary-white));
-    @media (min-width: 700px) {
-        max-width: 400px;
-    }
-    @media (min-width: 1024px) {
-        justify-self: start;
-        justify-items: start;
-        text-align: left;
-    }
+  @include gridVerticalCenter();
+  justify-self: center;
+  text-align: center;
+  color: rgb(var(--primary-white));
+
+  @media (min-width: 700px) {
+    max-width: 400px;
+  }
+
+  @media (min-width: 1024px) {
+    justify-self: start;
+    justify-items: start;
+    text-align: left;
+  }
 }
 
 .mainProducts {
-    display: grid;
-    gap: 24px;
-    margin-bottom: 120px;
-    @media (min-width: 700px) {
-        gap: 32px;
-        margin-bottom: 96px;
-    }
-    @media (min-width: 1280px) {
-        gap: 48px;
-        margin-bottom: 200px;
-    }
+  display: grid;
+  gap: 24px;
+  margin-bottom: 120px;
+
+  @media (min-width: 700px) {
+    gap: 32px;
+    margin-bottom: 96px;
+  }
+
+  @media (min-width: 1280px) {
+    gap: 48px;
+    margin-bottom: 200px;
+  }
 }
 
 /*Higlight Section*/
 
 .higlightSection {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    background-color: rgb(var(--highlight-bright-color));
-    color: rgb(var(--primary-white));
-    padding: 55px 24px;
-@include gridVerticalCenter();
-    text-align: center;
-    @media (min-width: 1024px) {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-        gap: 130px;
-    }
-    @media (min-width: 1280px) {
-        padding: 95px 95px 0;
-    }
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: rgb(var(--highlight-bright-color));
+  color: rgb(var(--primary-white));
+  padding: 55px 24px;
+  @include gridVerticalCenter();
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 130px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 95px 95px 0;
+  }
 }
 
 .decorCirclesSvg {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -32%) scale(.57);
-    @media (min-width: 700px) {
-        transform: translate(-50%, -32%);  
-    }
-    @media (min-width: 1024px) {
-        transform: translate(-75%, -5%);  
-    }
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -32%) scale(.57);
+
+  @media (min-width: 700px) {
+    transform: translate(-50%, -32%);
+  }
+
+  @media (min-width: 1024px) {
+    transform: translate(-75%, -5%);
+  }
 }
 
 .higlightProductImage,
 .higlightProductInfo {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
 
 .higlightProductImage {
-    @include bgImgCover();
-    width: 170px;
-    height: 205px;
-    background-image: url(/assets/home/mobile/speaker-zx9.png);
-    margin-bottom: 32px;
-    @media (min-width: 700px) {
-        width: 195px;
-        height: 235px;
-        background-image: url(/assets/home/tablet/speaker-zx9.png);
-        margin-bottom: 64px;
-    }
-    @media (min-width: 1024px) {
-        width: 250px;
-        height: 300px;
-        margin-bottom: -60px;
-        align-self: end;
-    }
-    @media (min-width: 1280px) {
-        width: 410px;
-        height: 490px;
-        background-image: url(/assets/home/desktop/speaker-zx9.png);
-        margin-bottom: -20px;
-    }
+  @include bgImgCover();
+  width: 170px;
+  height: 205px;
+  background-image: url(/assets/home/mobile/speaker-zx9.png);
+  margin-bottom: 32px;
+
+  @media (min-width: 700px) {
+    width: 195px;
+    height: 235px;
+    background-image: url(/assets/home/tablet/speaker-zx9.png);
+    margin-bottom: 64px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 250px;
+    height: 300px;
+    margin-bottom: -60px;
+    align-self: end;
+  }
+
+  @media (min-width: 1280px) {
+    width: 410px;
+    height: 490px;
+    background-image: url(/assets/home/desktop/speaker-zx9.png);
+    margin-bottom: -20px;
+  }
 }
 
 .higlightProductInfo {
-    @include gridVerticalCenter();
-    @media (min-width: 700px) {
-        max-width: 350px;
-    }
-    @media (min-width: 1024px) {
-        padding-top: 20px;
-        justify-items: left;
-        text-align: left;
-    }
+  @include gridVerticalCenter();
+
+  @media (min-width: 700px) {
+    max-width: 350px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 20px;
+    justify-items: left;
+    text-align: left;
+  }
 }
 
-/*BgImage Section*/ 
+/*BgImage Section*/
 
 .bgImageSection {
-    @include bgImgCover();
-    @include gridHorizontalCenter();
-    gap: 32px;
-    padding-left: 24px;
-    width: 100%;
-    height: 325px;
-    background-image: url(/assets/home/mobile/speaker-zx7.jpg);
-    @media (min-width: 700px) {
-        height: 320px;
-        background-image: url(/assets/home/tablet/speaker-zx7.jpg);
-        padding-left: 62px;
-    }
-    @media (min-width: 1024px) {
-        background-image: url(/assets/home/desktop/speaker-zx7.jpg);
-        padding-left: 95px;
-    }
+  @include bgImgCover();
+  @include gridHorizontalCenter();
+  gap: 32px;
+  padding-left: 24px;
+  width: 100%;
+  height: 325px;
+  background-image: url(/assets/home/mobile/speaker-zx7.jpg);
+
+  @media (min-width: 700px) {
+    height: 320px;
+    background-image: url(/assets/home/tablet/speaker-zx7.jpg);
+    padding-left: 62px;
+  }
+
+  @media (min-width: 1024px) {
+    background-image: url(/assets/home/desktop/speaker-zx7.jpg);
+    padding-left: 95px;
+  }
 }
 
-/*Divided Section*/ 
+/*Divided Section*/
 
-.dividedSection{
-    display: grid;
-    gap: 24px;
-    @media (min-width: 700px) {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-    @media (min-width: 1024px) {
-        gap: 30px;
-    }
+.dividedSection {
+  display: grid;
+  gap: 24px;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 30px;
+  }
 }
 
 .dividedProductImage {
-    @include bgImgCover();
-    width: 100%;
-    height: 200px;
-    background-image: url(/assets/home/mobile/earphones-yx1.jpg);
-    @media (min-width: 700px) {
-        height: 320px;
-        background-image: url(/assets/home/tablet/earphones-yx1.jpg);
-    }
-    @media (min-width: 1024px) {
-        background-image: url(/assets/home/desktop/earphones-yx1.jpg);
-    }
+  @include bgImgCover();
+  width: 100%;
+  height: 200px;
+  background-image: url(/assets/home/mobile/earphones-yx1.jpg);
+
+  @media (min-width: 700px) {
+    height: 320px;
+    background-image: url(/assets/home/tablet/earphones-yx1.jpg);
+  }
+
+  @media (min-width: 1024px) {
+    background-image: url(/assets/home/desktop/earphones-yx1.jpg);
+  }
 }
 
 .dividedProductInfo {
-    @include gridHorizontalCenter();
-    gap: 32px;
-    background-color: rgb(var(--primary-gray));
-    padding: 41px 0 41px 24px;
-    @media (min-width: 700px) {
-        padding: 0;
-        padding-left: 41px;
-    }
-    @media (min-width: 1024px) {
-        padding-left: 95px;
-    }
+  @include gridHorizontalCenter();
+  gap: 32px;
+  background-color: rgb(var(--primary-gray));
+  padding: 41px 0 41px 24px;
+
+  @media (min-width: 700px) {
+    padding: 0;
+    padding-left: 41px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 95px;
+  }
 }

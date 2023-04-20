@@ -1,177 +1,180 @@
 @mixin backgroundImage() {
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.goBackLink {
-    margin-top: -48px;
-    margin-bottom: 24px;
-    @media (min-width: 700px) {
-        margin-top: -90px;
-    }
-    @media (min-width: 1280px) {
-        margin-top: -80px;
-        margin-bottom: 56px;
-    }
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
-    display: grid;
-    gap: 88px;
-    margin-bottom: 120px;
-    @media (min-width: 1280px) {
-        margin-bottom: 160px;
-        grid-template-columns: 57% 30%;
-        align-items: start;
-        justify-content: space-between;
-        grid-template-areas: 
-            "preview preview"
-            "features includes"
-            "gallery gallery"
-            "others others";
-    }
+  display: grid;
+  gap: 88px;
+  margin-bottom: 120px;
+
+  @media (min-width: 1280px) {
+    margin-bottom: 160px;
+    grid-template-columns: 57% 30%;
+    align-items: start;
+    justify-content: space-between;
+    grid-template-areas:
+      "preview preview"
+      "features includes"
+      "gallery gallery"
+      "others others";
+  }
 }
 
 .gapContainer {
-    display: grid;
-    gap: 24px;
+  display: grid;
+  gap: 24px;
 }
 
 .marginRight {
-    margin-right: 20px;
-    opacity: 1;
-    @media (min-width: 700px) {
-        margin-right: 24px;
-    }
+  margin-right: 20px;
+  opacity: 1;
+
+  @media (min-width: 700px) {
+    margin-right: 24px;
+  }
 }
 
 .previewSection {
-    display: grid;
-    gap: 32px;
-    @media (min-width: 700px) {
-        grid-template-columns: 281px auto;
-        gap: 70px;
-        align-items: center;
-    }
-    @media (min-width: 1280px) {
-        grid-template-columns: 540px auto;
-        gap: 125px;
-        grid-area: preview;
-    }
+  display: grid;
+  gap: 32px;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 281px auto;
+    gap: 70px;
+    align-items: center;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 540px auto;
+    gap: 125px;
+    grid-area: preview;
+  }
 }
 
 .mainImage {
-    @include backgroundImage();
-    height: 327px;
-    @media (min-width: 700px) {
-        height: 480px;
-    }
-    @media (min-width: 1280px) {
-        height: 560px;
-    }
+  @include backgroundImage();
+  height: 327px;
+
+  @media (min-width: 700px) {
+    height: 480px;
+  }
+
+  @media (min-width: 1280px) {
+    height: 560px;
+  }
 }
 
-.addToCartContainer{
-    display: flex;
-    align-items: center;
-    gap: 16px;
+.addToCartContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .baseQuantityWrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-content: center;
-    align-items: baseline;
-    font-size: .815rem;
-    font-weight: 700;
-    line-height: 1.3em;
-    letter-spacing: 1px;
-    background-color: rgb(var(--primary-gray));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: center;
+  align-items: baseline;
+  font-size: .815rem;
+  font-weight: 700;
+  line-height: 1.3em;
+  letter-spacing: 1px;
+  background-color: rgb(var(--primary-gray));
 }
 
 .quantityWrapper {
-    gap: 20px;
-    height: 100%;
-    padding: 0 15px;
+  gap: 20px;
+  height: 100%;
+  padding: 0 15px;
 }
 
 .featuresSection {
-    @media (min-width: 1280px) {
-        grid-area: features;
-    }
+  @media (min-width: 1280px) {
+    grid-area: features;
+  }
 }
 
 .includesSection {
-    @media (min-width: 700px) and (max-width: 1279px) {
-        grid-template-columns: 1fr 1fr;
-    }
-    @media (min-width: 1280px) {
-        grid-area: includes;
-    }
+  @media (min-width: 700px) and (max-width: 1279px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1280px) {
+    grid-area: includes;
+  }
 }
 
 .gallery {
-    display: grid;
-    grid-template-rows: 174px 174px 368px;
-    gap: 20px;
-    @media (min-width: 700px) {
-        grid-template-rows: 174px 174px;
-        grid-template-columns: 40% auto;
-        grid-template-areas: 
-            "smallImg bigImg"
-            "smallImg bigImg";
-    }
-    @media (min-width: 1280px) {
-        grid-template-rows: 280px 280px;
-        gap: 30px;
-        grid-area: gallery;
-    }
+  display: grid;
+  grid-template-rows: 174px 174px 368px;
+  gap: 20px;
+
+  @media (min-width: 700px) {
+    grid-template-rows: 174px 174px;
+    grid-template-columns: 40% auto;
+    grid-template-areas:
+      "smallImg bigImg"
+      "smallImg bigImg";
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-rows: 280px 280px;
+    gap: 30px;
+    grid-area: gallery;
+  }
 }
 
 .galleryImage {
-    @include backgroundImage();
-    height: 100%;
-    @media (min-width: 700px) {
-        &:nth-child(3) {
-            grid-area: bigImg;
-        }
+  @include backgroundImage();
+  height: 100%;
+
+  @media (min-width: 700px) {
+    &:nth-child(3) {
+      grid-area: bigImg;
     }
+  }
 }
 
 .othersSection {
-    text-align: center;
-    @media (min-width: 1280px) {
-        grid-area: others;
-    }
+  text-align: center;
+
+  @media (min-width: 1280px) {
+    grid-area: others;
+  }
 }
 
 .othersContainer {
-    display: grid;
-    gap: 56px;
-    @media (min-width: 700px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-    @media (min-width: 1280px) {
-        gap: 30px;
-    }
+  display: grid;
+  gap: 56px;
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  @media (min-width: 1280px) {
+    gap: 30px;
+  }
 }
 
 .otherItemWrapper {
-    display: grid;
-    gap: 32px;
-    justify-items: center;
-    @media (min-width: 700px) {
-        gap: 40px;
-    }
+  display: grid;
+  gap: 32px;
+  justify-items: center;
+
+  @media (min-width: 700px) {
+    gap: 40px;
+  }
 }
 
 .othersImg {
-    @include backgroundImage();
-    height: 120px;
-    @media (min-width: 700px) {
-        height: 320px;
-    }
+  @include backgroundImage();
+  height: 120px;
+
+  @media (min-width: 700px) {
+    height: 320px;
+  }
 }

@@ -1,0 +1,22 @@
+.pageBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgb(var(--primary-gray));
+}
+
+.mainContainer {
+  display: grid;
+  margin-bottom: 97px;
+
+  @media (min-width: 700px) {
+    margin-bottom: 116px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 140px;
+  }
+}

@@ -1,46 +1,49 @@
 .cartContainer {
-    background-color: rgb(var(--primary-white));
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    transform: translateY(24px);
-    padding: 32px 20px;
-    display: grid;
-    gap: 24px;
-    @media (min-width: 700px) {
-        left: unset;
-        width: 380px;
-        padding: 32px;
-    }
-    @media (min-width: 1280px) {
-        transform: translateY(32px);
-    }
+  background-color: rgb(var(--primary-white));
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateY(24px);
+  padding: 32px 20px;
+  display: grid;
+  gap: 24px;
+
+  @media (min-width: 700px) {
+    left: unset;
+    width: 380px;
+    padding: 32px;
+  }
+
+  @media (min-width: 1280px) {
+    transform: translateY(32px);
+  }
 }
 
 .flexContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .productInfoWrapper {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .quantityWrapper {
-    gap: 10px;
-    padding: 7px 10px;
-    height: auto;
+  gap: 10px;
+  padding: 7px 10px;
+  height: auto;
 }
 
 .removeBtn {
-    background-color: transparent;
-    text-decoration: underline;
-    cursor: pointer;
-    &:hover {
-        color: rgb(var(--highlight-bright-color));
-    }
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(var(--highlight-bright-color));
+  }
 }

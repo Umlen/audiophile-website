@@ -1,8 +1,9 @@
 :root {
-    --primary-black: 0, 0, 0;
-    --primary-white: 255, 255, 255;
-    --primary-gray: 241, 241, 241;
-    --secondary-black: 16, 16, 16;
-    --highlight-bright-color: 216, 125, 74;
-    --highlight-pale-color: 251, 175, 133;
+  --primary-black: 0, 0, 0;
+  --primary-white: 255, 255, 255;
+  --primary-gray: 241, 241, 241;
+  --secondary-black: 16, 16, 16;
+  --secondary-gray: 207, 207, 207;
+  --highlight-bright-color: 216, 125, 74;
+  --highlight-pale-color: 251, 175, 133;
 }

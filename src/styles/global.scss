@@ -1,76 +1,113 @@
 @import 'variables.css';
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
-h1, h2, 
-h3, h4,
-h5, h6, p {
-    margin: 0;
+h1, h2, h3,
+h4, h5, h6,
+p {
+  margin: 0;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button {
-    border: none;
-    cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 
 .lrPaddingContainer {
-    padding-left: 24px;
-    padding-right: 24px;
-    @media (min-width: 700px) {
-        padding-left: 40px;
-        padding-right: 40px;  
-    }
-    @media (min-width: 1280px) {
-        padding-left: 165px;
-        padding-right: 165px;
-    }
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @media (min-width: 700px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-left: 165px;
+    padding-right: 165px;
+  }
 }
 
 .blackout {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(var(--primary-black), .5);
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(var(--primary-black), .5);
+  z-index: -1;
+}
+
+.categoriesPageTitle {
+  /*Not for home page*/
+  background-color: rgb(var(--primary-black));
+  color: rgb(var(--primary-white));
+  text-align: center;
+  padding: 32px 0;
+  margin: 0 -24px 64px;
+
+  @media (min-width: 700px) {
+    padding: 95px 0;
+    margin: 0 -40px 120px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 0 -165px 160px;
+  }
 }
 
 .svgIcons {
-    cursor: pointer;
-    fill: rgb(var(--primary-white));
-    &:hover {
-        fill: rgb(var(--highlight-bright-color));
-    }
+  cursor: pointer;
+  fill: rgb(var(--primary-white));
+
+  &:hover {
+    fill: rgb(var(--highlight-bright-color));
+  }
 }
 
 .borderRadius {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 .whiteLink {
-    color: rgb(var(--primary-white));
-    letter-spacing: 2px;
-    line-height: 1.9;
-    &:hover {
-        color: rgb(var(--highlight-bright-color));
-    }
+  color: rgb(var(--primary-white));
+  letter-spacing: 2px;
+  line-height: 1.9;
+
+  &:hover {
+    color: rgb(var(--highlight-bright-color));
+  }
 }
 
 .blackLink {
-    color: rgb(var(--primary-black));
-    opacity: .5;
-    &:hover {
-        opacity: 1;
-    }
+  color: rgb(var(--primary-black));
+  opacity: .5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.goBackLink {
+  padding-top: 48px;
+  margin-bottom: 24px;
+
+  @media (min-width: 700px) {
+    padding-top: 90px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 80px;
+    margin-bottom: 56px;
+  }
 }

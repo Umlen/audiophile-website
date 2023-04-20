@@ -1,99 +1,110 @@
 .footer {
-    position: relative;
-    padding-top: 52px;
-    padding-bottom: 38px;
-    background-color: rgb(var(--secondary-black));
-    color: rgb(var(--primary-white));
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 48px;
+  position: relative;
+  padding-top: 52px;
+  padding-bottom: 38px;
+  background-color: rgb(var(--secondary-black));
+  color: rgb(var(--primary-white));
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 48px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
+    height: 4px;
+    background-color: rgb(var(--highlight-bright-color));
+  }
+
+  @media (min-width: 700px) {
+    padding-top: 56px;
+    padding-bottom: 46px;
+    text-align: left;
+    justify-items: start;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo logo"
+      "menu menu"
+      "description description"
+      "copyright socials";
+
     &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 100px;
-        transform: translateX(-50%);
-        height: 4px;
-        background-color: rgb(var(--highlight-bright-color));
+      left: 40px;
+      transform: unset;
     }
-    @media (min-width: 700px) {
-        padding-top: 56px;
-        padding-bottom: 46px;
-        text-align: left;
-        justify-items: start;
-        gap: 32px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "logo logo"
-            "menu menu"
-            "description description"
-            "copyright socials";
-        &::before {
-            left: 40px;
-            transform: unset;
-        }
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 75px;
+    padding-bottom: 48px;
+    gap: 36px;
+    grid-template-areas:
+      "logo menu"
+      "description socials"
+      "copyright socials";
+
+    &::before {
+      left: 165px;
     }
-    @media (min-width: 1280px) {
-        padding-top: 75px;
-        padding-bottom: 48px;
-        gap: 36px;
-        grid-template-areas: 
-            "logo menu"
-            "description socials"
-            "copyright socials";
-        &::before {
-            left: 165px;
-        }
-    }
+  }
 }
 
 @media (min-width: 700px) {
-    .logo {
-        grid-area: logo;
-    }
-    .copyright {
-        grid-area: copyright;
-    }
+  .logo {
+    grid-area: logo;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
 
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    @media (min-width: 700px) {
-        flex-direction: row;
-        gap: 34px;
-        grid-area: menu;
-    }
-    @media (min-width: 1280px) {
-        justify-self: end;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+    gap: 34px;
+    grid-area: menu;
+  }
+
+  @media (min-width: 1280px) {
+    justify-self: end;
+  }
 }
 
 .description {
-    @media (min-width: 700px) {
-        grid-area: description;
-        margin-bottom: 48px;
-    }
-    @media (min-width: 1280px) {
-        margin-bottom: 20px;
-    }
+  @media (min-width: 700px) {
+    grid-area: description;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 20px;
+  }
 }
 
 .socialIconsContainer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    @media (min-width: 700px) {
-        grid-area: socials;
-        justify-self: end;
-    }
-    @media (min-width: 1280px) {
-        align-self: center;
-    }
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @media (min-width: 700px) {
+    grid-area: socials;
+    justify-self: end;
+  }
+
+  @media (min-width: 1280px) {
+    align-self: center;
+  }
 }

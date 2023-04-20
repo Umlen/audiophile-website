@@ -1,99 +1,102 @@
 .lineBreak {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 .highlightText {
-    color: rgb(var(--highlight-bright-color));
+  color: rgb(var(--highlight-bright-color));
 }
 
 .baseText {
-    opacity: .5;
-    line-height: 1.55;
-    font-weight: 500;
+  opacity: .5;
+  line-height: 1.55;
+  font-weight: 500;
 }
 
-.widespaceText,
-.upperCaseBold13px,
+.widespaceText, .upperCaseBold13px,
 .largeHeader, .bigHeader,
-.mediumHeader, .smallHeader, 
+.mediumHeader, .smallHeader,
 .smallestHeader, .bold18px,
 .uppercaseText {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .widespaceText {
-    font-size: .875rem;
-    letter-spacing: 10px;
+  font-size: .875rem;
+  letter-spacing: 10px;
 }
 
 .upperCaseBold13px {
-    font-size: .8rem;
-    font-weight: 700;
+  font-size: .8rem;
+  font-weight: 700;
 }
 
 .noOpacityText {
-    opacity: 1;
+  opacity: 1;
 }
 
 .boldText {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .bold18px {
-    font-size: 1.125rem;
-    line-height: 1.33;
-    letter-spacing: 1.3px;
-    font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.33;
+  letter-spacing: 1.3px;
+  font-weight: 700;
 }
 
 @mixin header28px() {
-    font-size: 1.75rem;
-    line-height: 1.35;
-    letter-spacing: 2px;
+  font-size: 1.75rem;
+  line-height: 1.35;
+  letter-spacing: 2px;
 }
 
 .largeHeader {
-    font-size: 2.25rem;
-    line-height: 1.11;
-    letter-spacing: 1.29px;
-    @media (min-width: 700px) {
-        font-size: 3.5rem;
-        line-height: 1.03;
-        letter-spacing: 2px; 
-    }
+  font-size: 2.25rem;
+  line-height: 1.11;
+  letter-spacing: 1.29px;
+
+  @media (min-width: 700px) {
+    font-size: 3.5rem;
+    line-height: 1.03;
+    letter-spacing: 2px;
+  }
 }
 
 .bigHeader {
-    @include header28px();
-    @media (min-width: 700px) {
-        font-size: 2.5rem;
-        line-height: 1.03;
-        letter-spacing: 1.43px; 
-    }
+  @include header28px();
+
+  @media (min-width: 700px) {
+    font-size: 2.5rem;
+    line-height: 1.03;
+    letter-spacing: 1.43px;
+  }
 }
 
 .mediumHeader {
-    font-size: 1.5rem;
-    line-height: 1.5;
-    letter-spacing: .9px;
-    @media (min-width: 700px) {
-        font-size: 2rem;
-        line-height: 1.125;
-        letter-spacing: 1.15px;
-    }
+  font-size: 1.5rem;
+  line-height: 1.5;
+  letter-spacing: .9px;
+
+  @media (min-width: 700px) {
+    font-size: 2rem;
+    line-height: 1.125;
+    letter-spacing: 1.15px;
+  }
 }
 
 .smallHeader {
-    @include header28px();
+  @include header28px();
 }
 
 .smallestHeader {
-    font-size: 1rem;
-    line-height: 1.3;
-    letter-spacing: 1.07px;
-    margin-bottom: 16px;
-    @media (min-width: 1024px) {
-        font-size: 1.125rem;
-        letter-spacing: 1.3px; 
-    }
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: 1.07px;
+  margin-bottom: 16px;
+
+  @media (min-width: 1024px) {
+    font-size: 1.125rem;
+    letter-spacing: 1.3px;
+  }
 }

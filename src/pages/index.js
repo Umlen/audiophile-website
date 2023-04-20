@@ -7,7 +7,7 @@ import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
 
 import Header from '@/Components/Header';
-import CategoriesMenu from '@/Components/CategoriesMenu';
+import CategoriesMenu from '@/Components/menus/CategoriesMenu';
 import About from '@/Components/About';
 import Footer from '@/Components/Footer';
 
@@ -26,11 +26,11 @@ function Home() {
           <p className={`${typography.widespaceText} ${home.superLowOpacity}`}>new product</p>
           <h1 className={typography.largeHeader}>XX99 Mark II HeadphoneS</h1>
           <p className={`${typography.baseText} ${home.lowOpacity}`}>
-            Experience natural, lifelike audio and exceptional build 
+            Experience natural, lifelike audio and exceptional build
             quality made for the passionate music enthusiast.
           </p>
-          <Link 
-            href='/xx99-mark-two-headphones' 
+          <Link
+            href='/xx99-mark-two-headphones'
             className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
           >
             see product
@@ -40,15 +40,15 @@ function Home() {
       <CategoriesMenu />
       <main className={`lrPaddingContainer ${home.mainProducts}`}>
         <section className={`borderRadius ${home.higlightSection}`}>
-          <Image src={decorCirclesSvg} alt='' className={home.decorCirclesSvg}/>
+          <Image src={decorCirclesSvg} alt='' className={home.decorCirclesSvg} />
           <div className={home.higlightProductImage}></div>
           <div className={home.higlightProductInfo}>
             <h2 className={typography.largeHeader}>zx9 speaker</h2>
             <p className={typography.baseText}>
               Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
             </p>
-            <Link 
-              href='/zx9-speaker' 
+            <Link
+              href='/zx9-speaker'
               className={`${buttons.baseButton} ${buttons.blackButton} ${typography.upperCaseBold13px}`}
             >
               see product
@@ -57,8 +57,8 @@ function Home() {
         </section>
         <section className={`borderRadius ${home.bgImageSection}`}>
           <h2 className={typography.smallHeader}>zx7 speaker</h2>
-          <Link 
-            href='/zx7-speaker' 
+          <Link
+            href='/zx7-speaker'
             className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}
           >
             see product
@@ -68,8 +68,8 @@ function Home() {
           <div className={`borderRadius ${home.dividedProductImage}`}></div>
           <div className={`borderRadius ${home.dividedProductInfo}`}>
             <h2 className={typography.smallHeader}>yx1 earphones</h2>
-            <Link 
-              href='/yx1-earphones' 
+            <Link
+              href='/yx1-earphones'
               className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}
             >
               see product
