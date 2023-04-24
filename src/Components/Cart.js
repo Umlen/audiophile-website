@@ -40,19 +40,25 @@ function Cart() {
   }
 
   function decreaseQuantity(e) {
-    const newCartItems = cartItems.map(item => {
-      const currentId = Number(e.currentTarget.parentNode.id);
-      if (currentId === item.id && item.quantity > 0) {
-        return {
-          ...item,
-          quantity: item.quantity - 1
+    const currentId = Number(e.currentTarget.parentNode.id);
+    const newCartItems = cartItems.reduce((newArr, currItem) => {
+      if (currentId === currItem.id) {
+        if (currItem.quantity > 1) {
+          newArr.push({...currItem, quantity: currItem.quantity - 1});
         }
+      } else {
+        newArr.push(currItem);
       }
-      return item;
-    });
+      console.log(newArr);
+      return newArr;
+    }, []);
 
-    localStorage.setItem('cart', JSON.stringify(newCartItems));
-    setCartItems(newCartItems);
+    if (newCartItems.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(newCartItems));
+      setCartItems(newCartItems);
+    } else {
+      clearCart();
+    }
   }
 
   function clearCart() {
