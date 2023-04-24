@@ -10,6 +10,7 @@ import checkout from '@/styles/checkout.module.scss';
 import Header from '@/Components/Header';
 import Footer from '@/Components/Footer';
 import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
+import CheckoutForm from '@/Components/checkout/CheckoutForm';
 
 
 function Home() {
@@ -34,24 +35,7 @@ function Home() {
           Go Back
         </Link>
         <div className={checkout.gridContainer}>
-          <section className={`borderRadius ${checkout.whiteSection}`}>
-            <h1 className={`${typography.mediumHeader} ${typography.boldText}`}>checkout</h1>
-            <div>
-              <h4 className={`${typography.upperCaseBold13px} ${typography.highlightText}`}>
-                billing details
-              </h4>
-            </div>
-            <div>
-              <h4 className={`${typography.upperCaseBold13px} ${typography.highlightText}`}>
-                shipping info
-              </h4>
-            </div>
-            <div>
-              <h4 className={`${typography.upperCaseBold13px} ${typography.highlightText}`}>
-                payment details
-              </h4>
-            </div>
-          </section>
+          <CheckoutForm isCashPay={isCashPay} />
           <CheckoutSummary isCashPay={isCashPay} cartItems={cartItems} />
         </div>
       </main>

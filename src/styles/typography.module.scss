@@ -25,24 +25,28 @@
   letter-spacing: 10px;
 }
 
-.upperCaseBold13px {
-  font-size: .8rem;
-  font-weight: 700;
-}
-
 .noOpacityText {
   opacity: 1;
 }
 
-.boldText {
+.boldText,
+.upperCaseBold13px,
+.bold18px, .bold12px {
   font-weight: 700;
+}
+
+.bold12px {
+  font-size: .75rem;
+}
+
+.upperCaseBold13px {
+  font-size: .8rem;
 }
 
 .bold18px {
   font-size: 1.125rem;
   line-height: 1.33;
   letter-spacing: 1.3px;
-  font-weight: 700;
 }
 
 @mixin header28px() {

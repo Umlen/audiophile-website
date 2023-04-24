@@ -49,7 +49,6 @@ function Cart() {
       } else {
         newArr.push(currItem);
       }
-      console.log(newArr);
       return newArr;
     }, []);
 
