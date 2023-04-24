@@ -14,12 +14,16 @@ import CheckoutForm from '@/Components/checkout/CheckoutForm';
 
 
 function Home() {
-  const [isCashPay, setIsCashPay] = useState(true);
+  const [isCashPay, setIsCashPay] = useState(false);
   const [cartItems, setCartItems] = useState(undefined);
 
   useEffect(() => {
     setCartItems(JSON.parse(localStorage.getItem('cart')));
   }, []);
+
+  function cashPayToggler() {
+    setIsCashPay(prevIsCashPay => !prevIsCashPay);
+  }
 
   return (
     <>
@@ -35,7 +39,7 @@ function Home() {
           Go Back
         </Link>
         <div className={checkout.gridContainer}>
-          <CheckoutForm isCashPay={isCashPay} />
+          <CheckoutForm isCashPay={isCashPay} cashPayToggler={cashPayToggler} />
           <CheckoutSummary isCashPay={isCashPay} cartItems={cartItems} />
         </div>
       </main>

@@ -55,6 +55,7 @@ function CheckoutSummary(props) {
       </div>
       <button
         form='checkoutForm'
+        type='submit'
         className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px} ${buttons.fullWidthBtn}`}
       >
         {props.isCashPay ? 'continue' : 'continue & pay'}
