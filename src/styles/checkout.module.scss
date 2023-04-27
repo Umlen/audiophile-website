@@ -160,3 +160,25 @@
     background-color: rgb(var(--highlight-bright-color));
   }
 }
+
+.errorLabel {
+  position: relative;
+
+  &::after {
+    content: "";
+    font-family: inherit;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: red;
+    font-weight: 500;
+  }
+}
+
+.errorLabelFormat::after {
+  content: "Wrong format";
+}
+
+.errorLaberEmpty::after {
+  content: "Empty field";
+}

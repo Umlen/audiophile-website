@@ -25,8 +25,6 @@ function CheckoutForm(props) {
     });
   }
 
-  console.log(checkoutInfo);
-
   return (
     <section className={`borderRadius ${checkout.whiteSection}`}>
       <h1 className={`${typography.mediumHeader} ${typography.boldText} ${checkout.marginBottom32}`}>checkout</h1>
@@ -103,7 +101,7 @@ function CheckoutForm(props) {
             />
           </div>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='country' className={typography.bold12px}>Country</label>
+            <label htmlFor='country' className={`${typography.bold12px}`}>Country</label>
             <input 
               id='country' type='text' placeholder='Enter your country' required 
               className={`borderRadius ${checkout.formInput}`}

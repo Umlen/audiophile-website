@@ -5,7 +5,18 @@ import '@/styles/global.scss';
 const manrope = Manrope({ subsets: ['latin'] });
 
 function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <style jsx global>
+        {`
+          html {
+            font-family: ${manrope.style.fontFamily};
+          }
+        `}
+      </style>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default App;
