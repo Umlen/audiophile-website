@@ -161,8 +161,13 @@
   }
 }
 
+.errorInput {
+  border: 2px solid red;
+}
+
 .errorLabel {
   position: relative;
+  color: red;
 
   &::after {
     content: "";

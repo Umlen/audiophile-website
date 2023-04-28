@@ -1,67 +1,81 @@
-import { useState } from 'react';
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
 
 import typography from '@/styles/typography.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 
 function CheckoutForm(props) {
-  const [checkoutInfo, setCheckoutInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    zipCode: '',
-    city: '',
-    country: '',
-    paymentMethod: 'eMoney'
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      zipCode: '',
+      city: '',
+      country: '',
+      paymentMethod: 'eMoney',
+    },
+    mode: "onSubmit",
   });
 
-  function handleChange(e) {
-    setCheckoutInfo(prevInfo => {
-      return {
-        ...prevInfo,
-        [e.target.name]: e.target.value
-      }
-    });
+  const onSubmit = data => {
+    console.log(data);
   }
 
   return (
     <section className={`borderRadius ${checkout.whiteSection}`}>
       <h1 className={`${typography.mediumHeader} ${typography.boldText} ${checkout.marginBottom32}`}>checkout</h1>
-      <form id='checkoutForm' action=''>
+      <form id='checkoutForm' onSubmit={handleSubmit(onSubmit)}>
         <h4 className={`${typography.upperCaseBold13px} ${typography.highlightText} ${checkout.marginBottom16}`}>
           billing details
         </h4>
         <div className={checkout.gridWrapper}>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='name' className={typography.bold12px}>Name</label>
+            <label 
+              htmlFor='name' 
+              className={`${typography.bold12px} ${errors.name && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+            >
+              Name
+            </label>
             <input 
-              id='name' type='text' placeholder='Enter your full name' required 
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.name}
-              name='name'
-              onChange={handleChange}
+              id='name' type='text' placeholder='Enter your full name' 
+              className={`borderRadius ${checkout.formInput} ${errors.name && checkout.errorInput}`}
+              {...register('name', {required: true})}
             />
           </div>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='email' className={typography.bold12px}>Email address</label>
+            <label 
+              htmlFor='email' 
+              className={`
+                ${typography.bold12px} 
+                ${(errors.email && errors.email.type === 'pattern') && `${checkout.errorLabel} ${checkout.errorLabelFormat}`}
+                ${(errors.email && errors.email.type === 'required') && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}
+              `}
+            >
+              Email address
+            </label>
             <input 
-              id='email' type='email' placeholder='Enter your email' required 
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.email}
-              name='email'
-              onChange={handleChange}
+              id='email' type='email' placeholder='Enter your email' 
+              className={`borderRadius ${checkout.formInput} ${errors.email && checkout.errorInput}`}
+              {...register('email', {required: true, pattern: /^\w{1,}\@{1}[a-z]{1,}\.[a-z]{1,}$/})}
             />
           </div>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='phone' className={typography.bold12px}>Phone number</label>
+            <label 
+              htmlFor='phone' 
+              className={`
+              ${typography.bold12px} 
+              ${(errors.phone && errors.phone.type === 'pattern') && `${checkout.errorLabel} ${checkout.errorLabelFormat}`}
+              ${(errors.phone && errors.phone.type === 'required') && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}
+            `}
+            >
+              Phone number
+            </label>
             <input 
-              id='phone' type='tel' placeholder='e.g.: +1 123-456-7890' required 
-              pattern='\+[0-9]{1,} [0-9]{3}-[0-9]{3}-[0-9]{4}'
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.phone}
-              name='phone'
-              onChange={handleChange}
+              id='phone' type='tel' placeholder='e.g.: +1 123-456-7890' 
+              className={`borderRadius ${checkout.formInput} ${errors.phone && checkout.errorInput}`}
+              {...register('phone', {required: true, pattern: /^\+[0-9]{1,} [0-9]{3}-[0-9]{3}-[0-9]{4}$/})}
             />
           </div>
         </div>
@@ -71,43 +85,55 @@ function CheckoutForm(props) {
         </h4>
         <div className={checkout.gridWrapper}>
           <div className={`${checkout.labelInputWrapper} ${checkout.gridInnerFullWidth}`}>
-            <label htmlFor='address' className={typography.bold12px}>Your Address</label>
+            <label 
+              htmlFor='address' 
+              className={`${typography.bold12px} ${errors.address && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+            >
+              Your Address
+            </label>
             <input 
-              id='address' type='text' placeholder='Enter your address' required 
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.address}
-              name='address'
-              onChange={handleChange}
+              id='address' type='text' placeholder='Enter your address' 
+              className={`borderRadius ${checkout.formInput} ${errors.address && checkout.errorInput}`}
+              {...register('address', {required: true})}
             />
           </div>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='zipCode' className={typography.bold12px}>ZIP Code</label>
+            <label 
+              htmlFor='zipCode' 
+              className={`${typography.bold12px} ${errors.zipCode && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+            >
+              ZIP Code
+            </label>
             <input 
-              id='zipCode' type='number' placeholder='Enter your ZIP code' required 
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.zipCode}
-              name='zipCode'
-              onChange={handleChange}
+              id='zipCode' type='number' placeholder='Enter your ZIP code' 
+              className={`borderRadius ${checkout.formInput} ${errors.zipCode && checkout.errorInput}`}
+              {...register('zipCode', {required: true})}
             />
           </div>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='city' className={typography.bold12px}>City</label>
+            <label 
+              htmlFor='city' 
+              className={`${typography.bold12px} ${errors.city && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+            >
+              City
+            </label>
             <input 
-              id='city' type='text' placeholder='Enter your city' required 
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.city}
-              name='city'
-              onChange={handleChange}
+              id='city' type='text' placeholder='Enter your city' 
+              className={`borderRadius ${checkout.formInput} ${errors.city && checkout.errorInput}`}
+              {...register('city', {required: true})}
             />
           </div>
           <div className={checkout.labelInputWrapper}>
-            <label htmlFor='country' className={`${typography.bold12px}`}>Country</label>
+            <label 
+              htmlFor='country' 
+              className={`${typography.bold12px} ${errors.country && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+            >
+              Country
+            </label>
             <input 
-              id='country' type='text' placeholder='Enter your country' required 
-              className={`borderRadius ${checkout.formInput}`}
-              value={checkoutInfo.country}
-              name='country'
-              onChange={handleChange}
+              id='country' type='text' placeholder='Enter your country'  
+              className={`borderRadius ${checkout.formInput} ${errors.country && checkout.errorInput}`}
+              {...register('country', {required: true})}
             />
           </div>
         </div>
@@ -119,11 +145,9 @@ function CheckoutForm(props) {
           <p className={`${typography.bold12px} ${checkout.marginBottom16}`}>Payment Method</p>
           <div>
             <input 
-              id='eMoney' type='radio' className={checkout.inputRadio} 
+              id='eMoney' type='radio' className={checkout.inputRadio}
+              {...register('paymentMethod', {required: true, onChange: props.cashPayToggler})} 
               value='eMoney' 
-              name='paymentMethod' 
-              checked={checkoutInfo.paymentMethod === 'eMoney'}
-              onChange={(e) => {handleChange(e); props.cashPayToggler();}}
             />
             <div className={`borderRadius ${checkout.inputRadioWrapper}`}>
               <label htmlFor='eMoney' className={`${typography.bold12px} ${checkout.inputRadioLabel}`}>
@@ -131,11 +155,9 @@ function CheckoutForm(props) {
               </label>
             </div>
             <input 
-              id='cash' type='radio' className={checkout.inputRadio}
-              value='cash' 
-              name='paymentMethod'  
-              checked={checkoutInfo.paymentMethod === 'cash'}
-              onChange={(e) => {handleChange(e); props.cashPayToggler();}}
+              id='cash' type='radio' className={checkout.inputRadio} 
+              {...register('paymentMethod', {required: true, onChange: props.cashPayToggler})} 
+              value='cash'
             />
             <div className={`borderRadius ${checkout.inputRadioWrapper}`}>
               <label htmlFor='cash' className={`${typography.bold12px} ${checkout.inputRadioLabel}`}>
@@ -157,17 +179,29 @@ function CheckoutForm(props) {
           :
             <div className={checkout.gridWrapper}>
               <div className={checkout.labelInputWrapper}>
-                <label htmlFor='eMoneyNumber' className={typography.bold12px}>e-Money Number</label>
+                <label 
+                  htmlFor='eMoneyNumber' 
+                  className={`${typography.bold12px} ${errors.eMoneyNumber && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+                >
+                  e-Money Number
+                </label>
                 <input 
-                  id='eMoneyNumber' type='number' placeholder='Enter e-Money Number' required 
-                  className={`borderRadius ${checkout.formInput}`}
+                  id='eMoneyNumber' type='number' placeholder='Enter e-Money Number' 
+                  className={`borderRadius ${checkout.formInput} ${errors.eMoneyNumber && checkout.errorInput}`}
+                  {...register('eMoneyNumber', {required: true})}
                 />
               </div>
               <div className={checkout.labelInputWrapper}>
-                <label htmlFor='eMoneyPin' className={typography.bold12px}>e-Money PIN</label>
+                <label 
+                  htmlFor='eMoneyPin' 
+                  className={`${typography.bold12px} ${errors.eMoneyPin && `${checkout.errorLabel} ${checkout.errorLaberEmpty}`}`}
+                >
+                  e-Money PIN
+                </label>
                 <input 
-                  id='eMoneyPin' type='number' placeholder='Enter e-Money PIN' required 
-                  className={`borderRadius ${checkout.formInput}`}
+                  id='eMoneyPin' type='number' placeholder='Enter e-Money PIN' 
+                  className={`borderRadius ${checkout.formInput} ${errors.eMoneyPin && checkout.errorInput}`}
+                  {...register('eMoneyPin', {required: true})}
                 />
               </div>
             </div> 
