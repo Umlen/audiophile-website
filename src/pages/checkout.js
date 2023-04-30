@@ -39,7 +39,7 @@ function Home() {
           Go Back
         </Link>
         <div className={checkout.gridContainer}>
-          <CheckoutForm isCashPay={isCashPay} cashPayToggler={cashPayToggler} />
+          <CheckoutForm isCashPay={isCashPay} cashPayToggler={cashPayToggler} cartItems={cartItems} />
           <CheckoutSummary isCashPay={isCashPay} cartItems={cartItems} />
         </div>
       </main>

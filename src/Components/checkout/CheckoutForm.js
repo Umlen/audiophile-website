@@ -1,10 +1,15 @@
 import Image from 'next/image';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import typography from '@/styles/typography.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 
+import CompletedOrder from '../CompletedOrder';
+
 function CheckoutForm(props) {
+  const [isOrderComplete, setIsOrderComplete] = useState(false);
+  const orderedProducts = props.cartItems && props.cartItems.map(({name, quantity}) => ({name, quantity}));
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       name: '',
@@ -20,11 +25,25 @@ function CheckoutForm(props) {
   });
 
   const onSubmit = data => {
-    console.log(data);
+    fetch('/api/checkoutForm', {
+        method: 'POST', 
+        body: JSON.stringify({...data, orderedProducts}),
+        headers: {'Content-type': 'application/json; charset=UTF-8'}
+      }
+    )
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Something went wrong! Please try again');
+        }
+        response.json();
+      })
+      .then(setIsOrderComplete(true))
+      .catch(error => alert(error));
   }
 
   return (
     <section className={`borderRadius ${checkout.whiteSection}`}>
+      {isOrderComplete && <CompletedOrder />}
       <h1 className={`${typography.mediumHeader} ${typography.boldText} ${checkout.marginBottom32}`}>checkout</h1>
       <form id='checkoutForm' onSubmit={handleSubmit(onSubmit)}>
         <h4 className={`${typography.upperCaseBold13px} ${typography.highlightText} ${checkout.marginBottom16}`}>
