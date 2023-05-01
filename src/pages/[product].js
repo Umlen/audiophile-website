@@ -125,7 +125,7 @@ function Product({ product }) {
   return (
     <>
       <Head>
-        <title>Audiophile - {product.name}</title>
+        <title>{`Audiophile - ${product.name}`}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <div className={`lrPaddingContainer ${header.headerWrapper}`}>
