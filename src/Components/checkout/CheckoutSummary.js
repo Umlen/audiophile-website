@@ -5,12 +5,17 @@ import checkout from '@/styles/checkout.module.scss';
 import CartProducts from '@/Components/CartProducts';
 
 import sumCalculations from '@/utils/sumCalculations';
+import addCommaToPrice from '@/utils/addCommaToPrice';
 
 function CheckoutSummary(props) {
   const cartItems = props.cartItems;
 
   const productsElements = cartItems && createProductsElements(cartItems);
   const {totalPrice, vatCost, shippingCost, grandTotal} = cartItems ? sumCalculations(cartItems) : 0;
+  const totalPriceStr = addCommaToPrice(totalPrice);
+  const vatCostStr = addCommaToPrice(vatCost);
+  const shippingCostStr = addCommaToPrice(shippingCost);
+  const grandTotalStr = addCommaToPrice(grandTotal);
 
   function createProductsElements(cartArr) {
     return cartArr.map((product, key) => {
@@ -30,20 +35,20 @@ function CheckoutSummary(props) {
       <div>
         <div className={`${checkout.flexContainer} ${checkout.paddingBottom8px}`}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>Total</p>
-          <p className={typography.bold18px}>$ {totalPrice || 0}</p>
+          <p className={typography.bold18px}>$ {totalPriceStr || 0}</p>
         </div>
         <div className={`${checkout.flexContainer} ${checkout.paddingBottom8px}`}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>shipping</p>
-          <p className={typography.bold18px}>$ {shippingCost || 0}</p>
+          <p className={typography.bold18px}>$ {shippingCostStr || 0}</p>
         </div>
         <div className={`${checkout.flexContainer} ${checkout.paddingBottom8px}`}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>vat(include)</p>
-          <p className={typography.bold18px}>$ {vatCost || 0}</p>
+          <p className={typography.bold18px}>$ {vatCostStr || 0}</p>
         </div>
       </div>
       <div className={checkout.flexContainer}>
         <p className={`${typography.baseText} ${typography.uppercaseText}`}>grand total</p>
-        <p className={`${typography.bold18px} ${typography.highlightText}`}>$ {grandTotal || 0}</p>
+        <p className={`${typography.bold18px} ${typography.highlightText}`}>$ {grandTotalStr || 0}</p>
       </div>
       <button
         form='checkoutForm'

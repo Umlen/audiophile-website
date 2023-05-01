@@ -11,11 +11,13 @@ import CartProducts from '../CartProducts';
 import ExpandButton from './ExpandButton';
 
 import sumCalculations from '@/utils/sumCalculations';
+import addCommaToPrice from '@/utils/addCommaToPrice';
 
 function CompletedOrder(props) {
   const [isExpand, setIsExpand] = useState(false);
 
   const {grandTotal} = sumCalculations(props.cartItems);
+  const grandTotalStr = addCommaToPrice(grandTotal);
   const productsElements =createProductsElements(props.cartItems);
   const numberOfProducts = props.cartItems.length;
 
@@ -70,7 +72,7 @@ function CompletedOrder(props) {
               <p className={`${typography.baseText} ${typography.uppercaseText} ${checkout.paddingBottom8px}`}>
                 grand total
               </p>
-              <p className={`${typography.bold18px}`}>$ {grandTotal}</p>
+              <p className={`${typography.bold18px}`}>$ {grandTotalStr}</p>
             </div>
           </div>
         </div>

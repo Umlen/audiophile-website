@@ -9,12 +9,14 @@ import QuantityControlsBox from './QuantityControlsBox';
 import CartProducts from './CartProducts';
 
 import sumCalculations from '@/utils/sumCalculations';
+import addCommaToPrice from '@/utils/addCommaToPrice';
 
 function Cart() {
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cart')));
 
   const productsInCart = cartItems ? cartItems.length : 0;
   const {totalPrice} = cartItems ? sumCalculations(cartItems) : 0;
+  const totalPriceStr = totalPrice && addCommaToPrice(totalPrice);
   const productsElements = cartItems && createProductsElements(cartItems);
 
   function increaseQuantity(e) {
@@ -93,7 +95,7 @@ function Cart() {
         {productsElements}
         <div className={cartStyles.flexContainer}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>Total</p>
-          <p className={typography.bold18px}>$ {totalPrice || 0}</p>
+          <p className={typography.bold18px}>$ {totalPriceStr || 0}</p>
         </div>
         {
           productsElements &&

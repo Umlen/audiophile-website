@@ -18,6 +18,7 @@ import OthersElements from '@/Components/productsPages/OthersElements';
 import ProductGallery from '@/Components/productsPages/ProductGallery';
 import QuantityControlsBox from '@/Components/QuantityControlsBox';
 
+import addCommaToPrice from '@/utils/addCommaToPrice';
 
 export async function getStaticPaths() {
   const paths = productsData.map(productItem => ({ params: { product: productItem.slug } }));
@@ -34,6 +35,8 @@ export async function getStaticProps({ params }) {
 function Product({ product }) {
   const [imageDimension, setImageDimension] = useState('mobile');
   const [quantity, setQuantity] = useState(1);
+
+  const productPriceStr = addCommaToPrice(product.price);
 
   useEffect(() => {
     function choseImageDimension() {
@@ -150,7 +153,7 @@ function Product({ product }) {
               <h1 className={typography.bigHeader}>{product.name}</h1>
               <p className={typography.baseText}>{product.description}</p>
               <p className={`${typography.upperCaseBold13px} ${typography.smallestHeader}`}>
-                $ {product.price}
+                $ {productPriceStr}
               </p>
               <div className={productStyle.addToCartContainer}>
                 <QuantityControlsBox
