@@ -39,7 +39,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/Umlen/audiophile-website
-- Live Site URL: https://rainbow-otter-44537e.netlify.app/
+- Live Site URL: https://main--rainbow-otter-44537e.netlify.app/
 
 ## My process
 
