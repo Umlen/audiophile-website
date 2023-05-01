@@ -63,6 +63,10 @@ function CompletedOrder(props) {
     setIsExpand(prevState => !prevState);
   }
 
+  function clearCart() {
+    localStorage.clear();
+  }
+
   return (
     <div className={checkout.completedOrderWrapper}>
       <div className={`borderRadius ${checkout.completedOrder}`}>
@@ -87,7 +91,7 @@ function CompletedOrder(props) {
           href='/' 
           className={`${buttons.baseButton} ${buttons.orangeButton} ${buttons.fullWidthBtn} ${typography.upperCaseBold13px}`}
         >
-          back to home
+          <span onClick={clearCart()}>back to home</span>
         </Link>
       </div>
       <div className='blackout'></div>
