@@ -104,8 +104,6 @@ function Product({ product }) {
       cart.push(productObj);
       localStorage.setItem('cart', JSON.stringify(cart));
     }
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(cart);
   }
 
   function searchDuplicate(cartArr) {

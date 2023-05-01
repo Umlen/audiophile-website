@@ -1,0 +1,79 @@
+.wrapper {
+  position: absolute;
+  z-index: 1000;
+  left: 24px;
+  right: 24px;
+
+  @media (min-width: 700px) {
+    left: 110px;
+    right: 110px;
+  }
+
+  @media (min-width: 1280px) {
+    left: 320px;
+    right: 320px;
+  }
+
+  @media (min-width: 1440px) {
+    left: 420px;
+    right: 420px;
+  }
+}
+
+.completedOrder {
+  background-color: rgb(var(--primary-white));
+  padding: 32px;
+  display: grid;
+  gap: 24px;
+
+  @media (min-width: 700px) {
+    padding: 48px;
+    gap: 32px;
+  }
+}
+
+.orderContainer {
+  display: grid;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 55% 45%;
+  }
+}
+
+.orderInfoWrapper {
+  border-radius: 8px 8px 0 0;
+  padding: 24px;
+  background-color: rgb(var(--primary-gray));
+
+  @media (min-width: 700px) {
+    border-radius: 8px 0 0 8px;
+  }
+}
+
+.totalPriceWrapper {
+  border-radius: 0 0 8px 8px;
+  background-color: rgb(var(--primary-black));
+  color: rgb(var(--primary-white));
+  padding: 15px 24px;
+  display: grid;
+  align-items: center;
+
+  @media (min-width: 700px) {
+    border-radius: 0 8px 8px 0;
+  }
+}
+
+.alignItemsEnd {
+  align-items: end;
+}
+
+.expandButton {
+  cursor: pointer;
+  text-align: center;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgb(var(--secondary-gray));
+  &:hover {
+    opacity: 1;
+  }
+}

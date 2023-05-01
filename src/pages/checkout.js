@@ -11,7 +11,7 @@ import Header from '@/Components/Header';
 import Footer from '@/Components/Footer';
 import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
 import CheckoutForm from '@/Components/checkout/CheckoutForm';
-import CompletedOrder from '@/Components/CompletedOrder';
+import CompletedOrder from '@/Components/checkout/CompletedOrder';
 
 
 function Home() {

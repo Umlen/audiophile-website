@@ -4,21 +4,13 @@ import checkout from '@/styles/checkout.module.scss';
 
 import CartProducts from '@/Components/CartProducts';
 
+import sumCalculations from '@/utils/sumCalculations';
+
 function CheckoutSummary(props) {
   const cartItems = props.cartItems;
 
-  const productsElements = cartItems ? createProductsElements(cartItems) : undefined;
-  const totalPrice = cartItems ? calculateTotalPrice(cartItems) : 0;
-  const vatCost = Math.floor(totalPrice * 0.2);
-  const shippingCost = Math.ceil(totalPrice * 0.01);
-  const grandTotal = totalPrice + shippingCost;
-
-  function calculateTotalPrice(cartArr) {
-    return cartArr.reduce((total, { price, quantity }) => {
-      const multiply = price * quantity;
-      return total = total + multiply;
-    }, 0);
-  }
+  const productsElements = cartItems && createProductsElements(cartItems);
+  const {totalPrice, vatCost, shippingCost, grandTotal} = cartItems ? sumCalculations(cartItems) : 0;
 
   function createProductsElements(cartArr) {
     return cartArr.map((product, key) => {
@@ -38,20 +30,20 @@ function CheckoutSummary(props) {
       <div>
         <div className={`${checkout.flexContainer} ${checkout.paddingBottom8px}`}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>Total</p>
-          <p className={typography.bold18px}>$ {totalPrice}</p>
+          <p className={typography.bold18px}>$ {totalPrice || 0}</p>
         </div>
         <div className={`${checkout.flexContainer} ${checkout.paddingBottom8px}`}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>shipping</p>
-          <p className={typography.bold18px}>$ {shippingCost}</p>
+          <p className={typography.bold18px}>$ {shippingCost || 0}</p>
         </div>
         <div className={`${checkout.flexContainer} ${checkout.paddingBottom8px}`}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>vat(include)</p>
-          <p className={typography.bold18px}>$ {vatCost}</p>
+          <p className={typography.bold18px}>$ {vatCost || 0}</p>
         </div>
       </div>
       <div className={checkout.flexContainer}>
         <p className={`${typography.baseText} ${typography.uppercaseText}`}>grand total</p>
-        <p className={`${typography.bold18px} ${typography.highlightText}`}>$ {grandTotal}</p>
+        <p className={`${typography.bold18px} ${typography.highlightText}`}>$ {grandTotal || 0}</p>
       </div>
       <button
         form='checkoutForm'

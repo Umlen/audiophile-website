@@ -5,23 +5,19 @@ import Link from 'next/link';
 import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
 import checkout from '@/styles/checkout.module.scss';
+import completedOrder from '@/styles/completedOrder.module.scss';
 
-import CartProducts from './CartProducts';
+import CartProducts from '../CartProducts';
+import ExpandButton from './ExpandButton';
+
+import sumCalculations from '@/utils/sumCalculations';
 
 function CompletedOrder(props) {
   const [isExpand, setIsExpand] = useState(false);
 
-  const totalPrice = calculateTotalPrice(props.cartItems);
+  const {grandTotal} = sumCalculations(props.cartItems);
   const productsElements =createProductsElements(props.cartItems);
   const numberOfProducts = props.cartItems.length;
-  const expandButton = createExpandButton();
-
-  function calculateTotalPrice(cartArr) {
-    return cartArr.reduce((total, { price, quantity }) => {
-      const multiply = price * quantity;
-      return total = total + multiply;
-    }, 0);
-  }
 
   function createProductsElements(cartArr) {
     if (isExpand) {
@@ -43,22 +39,6 @@ function CompletedOrder(props) {
     }
   }
 
-  function createExpandButton() {
-      if (isExpand) {
-        return (
-          <p className={`${typography.baseText} ${checkout.expandButton}`} onClick={expandToggler}>
-            View less
-          </p> 
-        );
-      } else if (!isExpand) {
-        return (
-          <p className={`${typography.baseText} ${checkout.expandButton}`} onClick={expandToggler}>
-            and {numberOfProducts - 1} other item(s)
-          </p> 
-        );
-      }
-  }
-
   function expandToggler() {
     setIsExpand(prevState => !prevState);
   }
@@ -68,22 +48,29 @@ function CompletedOrder(props) {
   }
 
   return (
-    <div className={checkout.completedOrderWrapper}>
-      <div className={`borderRadius ${checkout.completedOrder}`}>
+    <div className={completedOrder.wrapper}>
+      <div className={`borderRadius ${completedOrder.completedOrder}`}>
         <Image src='/assets/icons/checkout/icon-order-confirmation.svg' width={64} height={64} alt='' />
         <h2 className={typography.mediumHeader}>thank you for your order</h2>
         <p className={typography.baseText}>You will receive an email confirmation shortly.</p>
-        <div className={checkout.orderContainer}>
-          <div className={`${checkout.orderInfoWrapper}`}>
+        <div className={completedOrder.orderContainer}>
+          <div className={`${completedOrder.orderInfoWrapper}`}>
             {productsElements}
-            {numberOfProducts > 1 && expandButton}
+            {
+              numberOfProducts > 1 && 
+              <ExpandButton 
+                isExpand={isExpand} 
+                numberOfProducts={numberOfProducts} 
+                expandToggler={expandToggler} 
+              />
+            }
           </div>
-          <div className={isExpand ? `${checkout.totalPriceWrapper} ${checkout.alignItemsEnd}` : checkout.totalPriceWrapper}>
+          <div className={isExpand ? `${completedOrder.totalPriceWrapper} ${completedOrder.alignItemsEnd}` : completedOrder.totalPriceWrapper}>
             <div>
               <p className={`${typography.baseText} ${typography.uppercaseText} ${checkout.paddingBottom8px}`}>
                 grand total
               </p>
-              <p className={`${typography.bold18px}`}>$ {totalPrice}</p>
+              <p className={`${typography.bold18px}`}>$ {grandTotal}</p>
             </div>
           </div>
         </div>

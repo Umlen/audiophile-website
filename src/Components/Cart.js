@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
 import { useState } from 'react';
+import Link from 'next/link';
 
 import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
@@ -9,23 +8,19 @@ import cartStyles from '@/styles/cart.module.scss';
 import QuantityControlsBox from './QuantityControlsBox';
 import CartProducts from './CartProducts';
 
+import sumCalculations from '@/utils/sumCalculations';
+
 function Cart() {
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cart')));
 
   const productsInCart = cartItems ? cartItems.length : 0;
-  const totalPrice = cartItems ? calculateTotalPrice(cartItems) : 0;
-  const productsElements = cartItems ? createProductsElements(cartItems) : undefined;
-
-  function calculateTotalPrice(cartArr) {
-    return cartArr.reduce((total, { price, quantity }) => {
-      const multiply = price * quantity;
-      return total = total + multiply;
-    }, 0);
-  }
+  const {totalPrice} = cartItems ? sumCalculations(cartItems) : 0;
+  const productsElements = cartItems && createProductsElements(cartItems);
 
   function increaseQuantity(e) {
+    const currentId = Number(e.currentTarget.parentNode.id);
+
     const newCartItems = cartItems.map(item => {
-      const currentId = Number(e.currentTarget.parentNode.id);
       if (currentId === item.id) {
         return {
           ...item,
@@ -41,6 +36,7 @@ function Cart() {
 
   function decreaseQuantity(e) {
     const currentId = Number(e.currentTarget.parentNode.id);
+
     const newCartItems = cartItems.reduce((newArr, currItem) => {
       if (currentId === currItem.id) {
         if (currItem.quantity > 1) {
@@ -97,7 +93,7 @@ function Cart() {
         {productsElements}
         <div className={cartStyles.flexContainer}>
           <p className={`${typography.baseText} ${typography.uppercaseText}`}>Total</p>
-          <p className={typography.bold18px}>$ {totalPrice}</p>
+          <p className={typography.bold18px}>$ {totalPrice || 0}</p>
         </div>
         {
           productsElements &&
