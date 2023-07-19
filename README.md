@@ -1,6 +1,6 @@
-# Frontend Mentor - Audiophile e-commerce website solution
+# Audiophile website
 
-This is a solution to the [Audiophile e-commerce website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This dynamic e-commerce website showcases a diverse range of products across multiple pages, all fully optimized for a seamless user experience on any device. Made with Next.js and React Hook Form library.
 
 ## Table of contents
 
