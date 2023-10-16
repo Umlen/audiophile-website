@@ -1,4 +1,5 @@
-import Head from 'next/head';
+'use client';
+
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
@@ -19,23 +20,19 @@ import ProductGallery from '@/Components/productsPages/ProductGallery';
 import QuantityControlsBox from '@/Components/QuantityControlsBox';
 
 import addCommaToPrice from '@/utils/addCommaToPrice';
+import { ProductObjType, ProductType } from '@/types/types';
 
-export async function getStaticPaths() {
-  const paths = productsData.map(productItem => ({ params: { product: productItem.slug } }));
-  return { paths, fallback: false };
-}
+type Props = {
+  params: {
+    slug: string;
+  }
+};
 
-export async function getStaticProps({ params }) {
-  const product = productsData.find(productItem => productItem.slug === params.product);
-  return {
-    props: { product }
-  };
-}
-
-function Product({ product }) {
+function Product({ params: {slug} }: Props) {
   const [imageDimension, setImageDimension] = useState('mobile');
   const [quantity, setQuantity] = useState(1);
 
+  const product = productsData.filter((productItem : ProductType) => productItem.slug === slug)[0];
   const productPriceStr = addCommaToPrice(product.price);
 
   useEffect(() => {
@@ -69,7 +66,11 @@ function Product({ product }) {
 
   function addToCart() {
     if (localStorage.length !== 0) {
-      const cart = JSON.parse(localStorage.getItem('cart'));
+      const localStorageCart = localStorage.getItem('cart');
+      const cart: ProductObjType[] = [];
+      if (localStorageCart !== null) {
+        cart.push(...JSON.parse(localStorageCart));
+      }
 
       if (searchDuplicate(cart)) {
         for (let i = 0; i < cart.length; i++) {
@@ -102,7 +103,7 @@ function Product({ product }) {
         quantity: quantity,
         image: product.cart.cartImage
       };
-      const cart = [];
+      const cart: ProductObjType[] = [];
 
       cart.push(productObj);
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -124,10 +125,6 @@ function Product({ product }) {
 
   return (
     <>
-      <Head>
-        <title>{`Audiophile - ${product.name}`}</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </Head>
       <div className={`lrPaddingContainer ${header.headerWrapper}`}>
         <Header />
       </div>

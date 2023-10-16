@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -16,10 +15,6 @@ import decorCirclesSvg from '/public/assets/home/pattern-circles.svg';
 function Home() {
   return (
     <>
-      <Head>
-        <title>Audiophile</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </Head>
       <div className={`lrPaddingContainer ${home.sliderWrapper}`}>
         <Header />
         <section className={home.slider}>

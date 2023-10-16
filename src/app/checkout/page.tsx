@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+'use client'
 
-import Head from 'next/head';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 import header from '@/styles/header-and-nav.module.scss';
 import typography from '@/styles/typography.module.scss';
@@ -13,14 +13,16 @@ import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
 import CheckoutForm from '@/Components/checkout/CheckoutForm';
 import CompletedOrder from '@/Components/checkout/CompletedOrder';
 
-
-function Home() {
+function Checkout() {
   const [isCashPay, setIsCashPay] = useState(false);
   const [cartItems, setCartItems] = useState(undefined);
   const [isOrderComplete, setIsOrderComplete] = useState(false);
 
   useEffect(() => {
-    setCartItems(JSON.parse(localStorage.getItem('cart')));
+    const cart = localStorage.getItem('cart');
+    if (cart) {
+      setCartItems(JSON.parse(cart));
+    }
   }, []);
 
   function cashPayToggler() {
@@ -33,10 +35,6 @@ function Home() {
 
   return (
     <>
-      <Head>
-        <title>Audiophile - Checkout</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </Head>
       <div className={`lrPaddingContainer ${header.headerWrapper}`}>
         <Header />
       </div>
@@ -60,4 +58,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Checkout;
