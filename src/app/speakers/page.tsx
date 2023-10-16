@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { Metadata } from 'next';
 
 import productsData from '@/data/products';
 
@@ -11,22 +11,22 @@ import CategoriesMenu from '@/Components/menus/CategoriesMenu';
 import About from '@/Components/About';
 import Footer from '@/Components/Footer';
 
-function Headphones() {
+export const metadata: Metadata = {
+  title: 'Audiophile - Speakers',
+};
+
+function Speakers() {
   function productsCategoryFilter() {
-    return productsData.filter(({ category }) => category === 'headphones');
+    return productsData.filter(({ category }) => category === 'speakers');
   }
 
   return (
     <>
-      <Head>
-        <title>Audiophile - Headphones</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </Head>
       <div className={`lrPaddingContainer ${header.headerWrapper}`}>
         <Header />
       </div>
       <main className='lrPaddingContainer'>
-        <h1 className={`categoriesPageTitle ${typography.bigHeader}`}>headphones</h1>
+        <h1 className={`categoriesPageTitle ${typography.bigHeader}`}>speakers</h1>
         <Product products={productsCategoryFilter()} />
       </main>
       <CategoriesMenu />
@@ -36,4 +36,4 @@ function Headphones() {
   );
 }
 
-export default Headphones;
+export default Speakers;
