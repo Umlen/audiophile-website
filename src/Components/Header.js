@@ -9,8 +9,8 @@ import mobileMenuIcon from '/public/assets/icons/icon-hamburger.svg';
 import logo from '/public/assets/logo.svg';
 
 import DesktopMenu from './menus/DesktopMenu';
-import MobileMenu from './menus/MobileMenu';
 import Cart from './Cart';
+import MobileMenu from './menus/MobileMenu';
 
 function Header() {
   const mobileBreakPoint = 1024;

@@ -44,3 +44,9 @@ export type ProductObjType = {
   quantity: number;
   image: string;
 };
+
+export type CategoryType = {
+  id: string;
+  name: string;
+  image: string;
+};

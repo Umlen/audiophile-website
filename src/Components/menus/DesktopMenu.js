@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import header from '@/styles/header-and-nav.module.scss';
 import typography from '@/styles/typography.module.scss';
 
