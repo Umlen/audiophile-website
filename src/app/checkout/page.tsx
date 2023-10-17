@@ -8,10 +8,10 @@ import typography from '@/styles/typography.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 
 import Header from '@/Components/Header';
-import Footer from '@/Components/Footer';
 import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
 import CheckoutForm from '@/Components/checkout/CheckoutForm';
 import CompletedOrder from '@/Components/checkout/CompletedOrder';
+import Footer from '@/Components/Footer';
 
 function Checkout() {
   const [isCashPay, setIsCashPay] = useState(false);
