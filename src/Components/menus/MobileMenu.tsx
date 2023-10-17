@@ -1,8 +1,8 @@
+import { FunctionComponent } from 'react';
+import CategoriesMenu from './CategoriesMenu';
 import header from '@/styles/header-and-nav.module.scss';
 
-import CategoriesMenu from './CategoriesMenu';
-
-function MobileMenu() {
+const MobileMenu: FunctionComponent = () => {
   return (
     <>
       <div className={header.mobileMenu}>
@@ -11,6 +11,6 @@ function MobileMenu() {
       <div className='blackout'></div>
     </>
   );
-}
+};
 
 export default MobileMenu;
