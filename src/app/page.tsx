@@ -6,9 +6,9 @@ import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
 
 import Header from '@/Components/Header';
-import About from '@/Components/About';
 import CategoriesMenu from '@/Components/menus/CategoriesMenu';
 import Footer from '@/Components/Footer';
+import About from '@/Components/About';
 
 import decorCirclesSvg from '/public/assets/home/pattern-circles.svg';
 
