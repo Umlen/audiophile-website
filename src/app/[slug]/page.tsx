@@ -12,12 +12,12 @@ import productStyle from '@/styles/product.module.scss';
 
 import Header from '@/Components/Header';
 import CategoriesMenu from '@/Components/menus/CategoriesMenu';
-import About from '@/Components/About';
 import IncludesElements from '@/Components/productsPages/IncludesElements';
 import OthersElements from '@/Components/productsPages/OthersElements';
 import ProductGallery from '@/Components/productsPages/ProductGallery';
 import QuantityControlsBox from '@/Components/QuantityControlsBox';
 import Footer from '@/Components/Footer';
+import About from '@/Components/About';
 
 import addCommaToPrice from '@/utils/addCommaToPrice';
 import { ProductObjType, ProductType } from '@/types/types';

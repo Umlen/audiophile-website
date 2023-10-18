@@ -6,7 +6,7 @@ import rightArrowIcon from '/public/assets/icons/icon-arrow-right.svg';
 
 import { CategoryType } from '@/types/types';
 
-import header from '@/styles/header-and-nav.module.scss';
+import stylesHeader from '@/styles/header-and-nav.module.scss';
 import typography from '@/styles/typography.module.scss';
 
 type MenuItemProps = {
@@ -17,11 +17,14 @@ const CategoriesMenuItem: FunctionComponent<MenuItemProps> = ( {category} ) => {
   const {name, image} = category;
 
   return (
-    <div className={`borderRadius ${header.categoriesMenuItem}`}>
-      <img src={image} alt={`${name} icon`} className={header.categoriesMenuItemImg}/>
+    <div className={`borderRadius ${stylesHeader.categoriesMenuItem}`}>
+      <img src={image} alt={`${name} icon`} className={stylesHeader.categoriesMenuItemImg} />
       <h6 className={typography.smallestHeader}>headphones</h6>
-      <div className={header.categoriesLinkWrapper} >
-        <Link href={`/${name}`} className={`${typography.upperCaseBold13px} ${header.categoriesMenuItemLink}`}>
+      <div className={stylesHeader.categoriesLinkWrapper} >
+        <Link 
+          href={`/${name}`} 
+          className={`${typography.upperCaseBold13px} ${stylesHeader.categoriesMenuItemLink}`}
+        >
           shop
         </Link>
         <Image src={rightArrowIcon} alt='decor' />

@@ -1,5 +1,5 @@
 export type ProductType = {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   cart: CartType;
@@ -38,7 +38,7 @@ type OthersType = {
 };
 
 export type ProductObjType = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;

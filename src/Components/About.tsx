@@ -1,11 +1,12 @@
-import about from '@/styles/about.module.scss';
+import { FunctionComponent } from 'react';
+import stylesAbout from '@/styles/about.module.scss';
 import typography from '@/styles/typography.module.scss';
 
-function About() {
+const About: FunctionComponent = () => {
   return (
-    <div role='complementary' className={`lrPaddingContainer ${about.about}`}>
-      <div className={`borderRadius ${about.image}`}></div>
-      <div className={`borderRadius ${about.text}`}>
+    <div role='complementary' className={`lrPaddingContainer ${stylesAbout.about}`}>
+      <div className={`borderRadius ${stylesAbout.image}`} />
+      <div className={`borderRadius ${stylesAbout.text}`}>
         <h2 className={typography.bigHeader}>
           Bringing you the <span className={typography.highlightText}>best</span> audio gear
         </h2>
@@ -19,6 +20,6 @@ function About() {
       </div>
     </div>
   );
-}
+};
 
 export default About;

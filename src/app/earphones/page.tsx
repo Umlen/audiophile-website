@@ -8,8 +8,8 @@ import typography from '@/styles/typography.module.scss';
 import Header from '@/Components/Header';
 import ProductPreview from '@/Components/ProductPreview';
 import CategoriesMenu from '@/Components/menus/CategoriesMenu';
-import About from '@/Components/About';
 import Footer from '@/Components/Footer';
+import About from '@/Components/About';
 
 export const metadata: Metadata = {
   title: 'Audiophile - Earphones',

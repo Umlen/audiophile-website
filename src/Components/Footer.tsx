@@ -6,14 +6,14 @@ import logo from '/public/assets/logo.svg';
 import { categories } from '@/data/categories';
 import WhiteLink from './WhiteLink';
 
-import footer from '@/styles/footer.module.scss';
+import stylesFooter from '@/styles/footer.module.scss';
 import typography from '@/styles/typography.module.scss';
 
 const Footer: FunctionComponent = () => {
   return (
-    <footer className={`lrPaddingContainer ${footer.footer}`}>
-      <Image src={logo} alt='audiophile logo' className={footer.logo} />
-      <nav aria-label='footer menu' className={footer.menu}>
+    <footer className={`lrPaddingContainer ${stylesFooter.footer}`}>
+      <Image src={logo} alt='audiophile logo' className={stylesFooter.logo} />
+      <nav aria-label='footer menu' className={stylesFooter.menu}>
         <WhiteLink href='/' text='home' />
         <>
           {
@@ -27,15 +27,15 @@ const Footer: FunctionComponent = () => {
           }
         </>
       </nav>
-      <p className={`${typography.baseText} ${footer.description}`}>
+      <p className={`${typography.baseText} ${stylesFooter.description}`}>
         Audiophile is an all in one stop to fulfill your audio needs.
         We&apos;re a small team of music lovers and sound specialists who are devoted to helping
         you get the most out of personal audio. Come and visit our demo facility - we&apos;re open 7 days a week.
       </p>
-      <p className={`${typography.baseText} ${footer.copyright}`}>
+      <p className={`${typography.baseText} ${stylesFooter.copyright}`}>
         Copyright 2021. All Rights Reserved
       </p>
-      <div className={footer.socialIconsContainer}>
+      <div className={stylesFooter.socialIconsContainer}>
         <Link href='https://www.facebook.com/' target='_blank' aria-label="Facebook">
           <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" className='svgIcons'>
             <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" fillRule="nonzero" />
