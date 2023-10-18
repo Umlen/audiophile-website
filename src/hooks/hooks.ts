@@ -17,7 +17,7 @@ export const useResize: UseResizeType = (breakpoint = 1024) => {
     return () => {
       window.removeEventListener('resize', windowResizeHandler);
     };
-  }, []);
+  }, [breakpoint]);
 
   return isMobile;
 };
