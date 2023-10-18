@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 type UseResizeType = (breakpoint: number) => boolean;
 
 export const useResize: UseResizeType = (breakpoint = 1024) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < breakpoint);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const windowResizeHandler = () => {
@@ -13,6 +13,8 @@ export const useResize: UseResizeType = (breakpoint = 1024) => {
     };
 
     window.addEventListener('resize', windowResizeHandler);
+
+    windowResizeHandler();
 
     return () => {
       window.removeEventListener('resize', windowResizeHandler);
