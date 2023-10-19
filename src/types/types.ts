@@ -37,7 +37,7 @@ type OthersType = {
   image: ImageType;
 };
 
-export type ProductObjType = {
+export type ProductInCartType = {
   id: string;
   name: string;
   price: number;

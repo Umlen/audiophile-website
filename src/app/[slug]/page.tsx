@@ -19,8 +19,8 @@ import QuantityControlsBox from '@/Components/QuantityControlsBox';
 import Footer from '@/Components/Footer';
 import About from '@/Components/About';
 
-import addCommaToPrice from '@/utils/addCommaToPrice';
-import { ProductObjType, ProductType } from '@/types/types';
+import { addCommaToPrice } from '@/utils/utils';
+import { ProductInCartType, ProductType } from '@/types/types';
 
 type Props = {
   params: {
@@ -67,7 +67,7 @@ function Product({ params: {slug} }: Props) {
   function addToCart() {
     if (localStorage.length !== 0) {
       const localStorageCart = localStorage.getItem('cart');
-      const cart: ProductObjType[] = [];
+      const cart: ProductInCartType[] = [];
       if (localStorageCart !== null) {
         cart.push(...JSON.parse(localStorageCart));
       }
@@ -103,7 +103,7 @@ function Product({ params: {slug} }: Props) {
         quantity: quantity,
         image: product.cart.cartImage
       };
-      const cart: ProductObjType[] = [];
+      const cart: ProductInCartType[] = [];
 
       cart.push(productObj);
       localStorage.setItem('cart', JSON.stringify(cart));

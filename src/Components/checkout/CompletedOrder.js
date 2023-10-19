@@ -9,16 +9,16 @@ import buttons from '@/styles/buttons.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 import completedOrder from '@/styles/completedOrder.module.scss';
 
-import CartProducts from '../CartProducts';
+import CartProduct from '../CartProduct';
 import ExpandButton from './ExpandButton';
 
-import sumCalculations from '@/utils/sumCalculations';
-import addCommaToPrice from '@/utils/addCommaToPrice';
+import { addCommaToPrice, sumCalculation } from '@/utils/utils';
+
 
 function CompletedOrder(props) {
   const [isExpand, setIsExpand] = useState(false);
 
-  const {grandTotal} = sumCalculations(props.cartItems);
+  const {grandTotal} = sumCalculation(props.cartItems);
   const grandTotalStr = addCommaToPrice(grandTotal);
   const productsElements =createProductsElements(props.cartItems);
   const numberOfProducts = props.cartItems.length;
@@ -28,7 +28,7 @@ function CompletedOrder(props) {
       return cartArr.map((product, key) => {
         return (
           <div key={key} className={checkout.flexContainer}>
-            <CartProducts product={product} />
+            <CartProduct product={product} />
             <p className={`${typography.baseText} ${typography.boldText}`}>x{product.quantity}</p>
           </div>
         );
@@ -36,7 +36,7 @@ function CompletedOrder(props) {
     } else {
       return (
         <div className={checkout.flexContainer}>
-          <CartProducts product={cartArr[0]} />
+          <CartProduct product={cartArr[0]} />
           <p className={`${typography.baseText} ${typography.boldText}`}>x{cartArr[0].quantity}</p>
         </div>
       );
