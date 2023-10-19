@@ -2,16 +2,15 @@ import typography from '@/styles/typography.module.scss';
 import buttons from '@/styles/buttons.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 
-import CartProducts from '@/Components/CartProducts';
 
-import sumCalculations from '@/utils/sumCalculations';
-import addCommaToPrice from '@/utils/addCommaToPrice';
+import { addCommaToPrice, sumCalculation } from '@/utils/utils';
+import CartProduct from '../CartProduct';
 
 function CheckoutSummary(props) {
   const cartItems = props.cartItems;
 
   const productsElements = cartItems && createProductsElements(cartItems);
-  const {totalPrice, vatCost, shippingCost, grandTotal} = cartItems ? sumCalculations(cartItems) : 0;
+  const {totalPrice, vatCost, shippingCost, grandTotal} = cartItems ? sumCalculation(cartItems) :  0;
   const totalPriceStr = addCommaToPrice(totalPrice);
   const vatCostStr = addCommaToPrice(vatCost);
   const shippingCostStr = addCommaToPrice(shippingCost);
@@ -21,7 +20,7 @@ function CheckoutSummary(props) {
     return cartArr.map((product, key) => {
       return (
         <div key={key} className={checkout.flexContainer}>
-          <CartProducts product={product} />
+          <CartProduct product={product} />
           <p className={`${typography.baseText} ${typography.boldText}`}>x{product.quantity}</p>
         </div>
       );
