@@ -142,10 +142,10 @@ function Product({ params: {slug} }: Props) {
             </div>
             <div className={productStyle.gapContainer}>
               {
-                product.new &&
-                <p className={`${typography.widespaceText} ${typography.highlightText}`}>
-                  new product
-                </p>
+                product.isNew &&
+                  <p className={`${typography.widespaceText} ${typography.highlightText}`}>
+                    new product
+                  </p>
               }
               <h1 className={typography.bigHeader}>{product.name}</h1>
               <p className={typography.baseText}>{product.description}</p>
