@@ -1,39 +1,46 @@
 import { Metadata } from 'next';
-
+import { FunctionComponent } from 'react';
+import { placeNewProductsFirst, productsCategoryFilter } from '@/utils/utils';
 import productsData from '@/data/products';
 
-import header from '@/styles/header-and-nav.module.scss';
-import typography from '@/styles/typography.module.scss';
-
 import Header from '@/Components/Header';
-import Product from '@/Components/ProductPreview';
 import CategoriesMenu from '@/Components/menus/CategoriesMenu';
 import Footer from '@/Components/Footer';
 import About from '@/Components/About';
+import ProductsPreview from '@/Components/ProductsPreview';
+
+import typography from '@/styles/typography.module.scss';
+import stylesHeader from '@/styles/header-and-nav.module.scss';
 
 export const metadata: Metadata = {
   title: 'Audiophile - Speakers',
 };
 
-function Speakers() {
-  function productsCategoryFilter() {
-    return productsData.filter(({ category }) => category === 'speakers');
-  }
+const Speakers: FunctionComponent = () => {
+  const products = productsCategoryFilter('speakers', productsData);
+  const sortedProducts = placeNewProductsFirst(products);
 
   return (
     <>
-      <div className={`lrPaddingContainer ${header.headerWrapper}`}>
+      <div className={`lrPaddingContainer ${stylesHeader.headerWrapper}`}>
         <Header />
       </div>
       <main className='lrPaddingContainer'>
         <h1 className={`categoriesPageTitle ${typography.bigHeader}`}>speakers</h1>
-        <Product products={productsCategoryFilter()} />
+        {
+          sortedProducts.map(product => (
+            <ProductsPreview
+              key={product.id}
+              product={product}
+            />
+          ))
+        }
       </main>
       <CategoriesMenu />
       <About />
       <Footer />
     </>
   );
-}
+};
 
 export default Speakers;

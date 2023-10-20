@@ -1,9 +1,17 @@
-import { ProductInCartType } from '@/types/types';
+import { ProductInCartType, ProductType } from '@/types/types';
 
 type GetLocalStorageCartType = () => ProductInCartType[];
+
 type ChangeQuantityType = (
   id: string, cartItems: ProductInCartType[]
 ) => ProductInCartType[];
+
+type ProductsCategoryFilterType = (
+  category: string,
+  productsData: ProductType[]
+) => ProductType[];
+
+type PlaceNewProductsFirstType = (products: ProductType[]) => ProductType[];
 
 export const addCommaToPrice = (price: number) => {
   let priceStr = String(price);
@@ -62,6 +70,14 @@ export const decreaseQuantity: ChangeQuantityType = (id, cartItems) => {
 
   return newCartItems;
 };
+
+export const productsCategoryFilter: ProductsCategoryFilterType = (category, productsData) => {
+  return productsData.filter(product => product.category === category);
+}
+
+export const placeNewProductsFirst: PlaceNewProductsFirstType = (products) => {
+  return products.sort((a, b) => Number(b.isNew) - Number(a.isNew));
+}
 
 export const sumCalculation = (cartItems: ProductInCartType[]) => {
   const totalPrice = totalPriceCalculation(cartItems);

@@ -6,7 +6,7 @@ export type ProductType = {
   image: ImageType;
   category: string;
   categoryImage: ImageType;
-  new: boolean;
+  isNew: boolean;
   price: number;
   description: string;
   features: string;
