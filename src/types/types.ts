@@ -20,18 +20,18 @@ type CartType = {
   cartImage: string;
 };
 
-type ImageType = {
+export type ImageType = {
   mobile: string;
   tablet: string;
   desktop: string;
 };
 
-type IncludesType = {
+export type IncludesType = {
   quantity: number;
   item: string;
 };
 
-type OthersType = {
+export type OthersType = {
   slug: string;
   name: string;
   image: ImageType;

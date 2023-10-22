@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import { FunctionComponent, useState } from 'react';
-import { totalPriceCalculation, addCommaToPrice, decreaseQuantity, getLocalStorageCart, increaseQuantity } from '@/utils/utils';
+import { addCommaToPrice, decreaseQuantity, increaseQuantity } from '@/utils/utils';
+import { getLocalStorageCart } from '@/utils/utilsCart';
+import { totalPriceCalculation } from '@/utils/utilsCalculations';
 import CartProduct from './CartProduct';
+
 import typography from '@/styles/typography.module.scss';
 import stylesButtons from '@/styles/buttons.module.scss';
 import stylesCart from '@/styles/cart.module.scss';

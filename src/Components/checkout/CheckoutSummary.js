@@ -3,8 +3,9 @@ import buttons from '@/styles/buttons.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 
 
-import { addCommaToPrice, sumCalculation } from '@/utils/utils';
+import { addCommaToPrice } from '@/utils/utils';
 import CartProduct from '../CartProduct';
+import { sumCalculation } from '@/utils/utilsCalculations';
 
 function CheckoutSummary(props) {
   const cartItems = props.cartItems;
