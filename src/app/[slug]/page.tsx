@@ -1,7 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { useImageDimension } from '@/hooks/hooks';
 import { addCommaToPrice, productsSlugFilter } from '@/utils/utils';
 import { addProductToCart } from '@/utils/utilsCart';
@@ -12,12 +11,13 @@ import CategoriesMenu from '@/Components/menus/CategoriesMenu';
 import OthersElements from '@/Components/productsPages/OthersElements';
 import ProductGallery from '@/Components/productsPages/ProductGallery';
 import IncludesElements from '@/Components/productsPages/IncludesElements';
-import QuantityControlsBox from '@/Components/QuantityControlsBox';
+import QuantityControlsBox from '@/Components/ui/QuantityControlsBox';
+import OrangeButton from '@/Components/ui/OrangeButton';
+import GreyLink from '@/Components/ui/GreyLink';
 import Footer from '@/Components/Footer';
 import About from '@/Components/About';
 
 import typography from '@/styles/typography.module.scss';
-import stylesButtons from '@/styles/buttons.module.scss';
 import stylesHeader from '@/styles/header-and-nav.module.scss';
 import stylesProduct from '@/styles/product.module.scss';
 
@@ -27,15 +27,11 @@ type Props = {
   };
 };
 
-function Product({ params: {slug} }: Props) {
+const Product: FunctionComponent = ({ params: {slug} }: Props) => {
   const [quantity, setQuantity] = useState(1);
   const imageDimension = useImageDimension();
   const product = productsSlugFilter(slug, productsData);
   const productPrice = addCommaToPrice(product.price);
-
-  useEffect(() => {
-    setQuantity(1);
-  }, [product]);
 
   function increaseQuantity() {
     setQuantity(prev => prev + 1);
@@ -57,9 +53,10 @@ function Product({ params: {slug} }: Props) {
         <Header />
       </div>
       <main className={`lrPaddingContainer ${stylesProduct.paddingTopContainer}`}>
-        <Link href={`/${product.category}`} className={`blackLink goBackLink ${typography.baseText}`}>
-          Go Back
-        </Link>
+        <GreyLink 
+          href={`/${product.category}`}
+          text='Go Back'
+        />
         <div className= {stylesProduct.gridContainer}>
           <section className={stylesProduct.previewSection}>
             <div
@@ -86,12 +83,10 @@ function Product({ params: {slug} }: Props) {
                   plusBtnHandler={increaseQuantity}
                   class={stylesProduct.quantityWrapper}
                 />
-                <button
-                  className={`${stylesButtons.baseButton} ${stylesButtons.orangeButton} ${typography.upperCaseBold13px}`}
-                  onClick={addToCart}
-                >
-                  add to cart
-                </button>
+                <OrangeButton 
+                  clickHandler={addToCart}
+                  text='add to cart'
+                />
               </div>
             </div>
           </section>
@@ -111,6 +106,6 @@ function Product({ params: {slug} }: Props) {
       <Footer />
     </>
   );
-}
+};
 
 export default Product;

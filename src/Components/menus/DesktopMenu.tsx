@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { categories } from '@/data/categories';
-import WhiteLink from '../WhiteLink';
+import WhiteLink from '../ui/WhiteLink';
 import stylesHeader from '@/styles/header-and-nav.module.scss';
 
 const DesktopMenu: FunctionComponent = () => {

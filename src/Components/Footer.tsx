@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import logo from '/public/assets/logo.svg';
 import { categories } from '@/data/categories';
-import WhiteLink from './WhiteLink';
+import WhiteLink from './ui/WhiteLink';
 
 import stylesFooter from '@/styles/footer.module.scss';
 import typography from '@/styles/typography.module.scss';

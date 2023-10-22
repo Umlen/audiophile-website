@@ -1,74 +1,69 @@
-import Link from 'next/link';
 import Image from 'next/image';
-
-import home from '@/styles/home.module.scss';
-import typography from '@/styles/typography.module.scss';
-import buttons from '@/styles/buttons.module.scss';
+import { FunctionComponent } from 'react';
+import decorCirclesSvg from '/public/assets/home/pattern-circles.svg';
 
 import Header from '@/Components/Header';
 import CategoriesMenu from '@/Components/menus/CategoriesMenu';
+import LinkAsButton from '@/Components/ui/LinkAsButton';
 import Footer from '@/Components/Footer';
 import About from '@/Components/About';
 
-import decorCirclesSvg from '/public/assets/home/pattern-circles.svg';
+import stylesHome from '@/styles/home.module.scss';
+import typography from '@/styles/typography.module.scss';
 
-function Home() {
+const Home: FunctionComponent = () => {
   return (
     <>
-      <div className={`lrPaddingContainer ${home.sliderWrapper}`}>
+      <div className={`lrPaddingContainer ${stylesHome.sliderWrapper}`}>
         <Header />
-        <section className={home.slider}>
-          <p className={`${typography.widespaceText} ${home.superLowOpacity}`}>new product</p>
+        <section className={stylesHome.slider}>
+          <p className={`${typography.widespaceText} ${stylesHome.superLowOpacity}`}>new product</p>
           <h1 className={typography.largeHeader}>XX99 Mark II HeadphoneS</h1>
-          <p className={`${typography.baseText} ${home.lowOpacity}`}>
+          <p className={`${typography.baseText} ${stylesHome.lowOpacity}`}>
             Experience natural, lifelike audio and exceptional build
             quality made for the passionate music enthusiast.
           </p>
-          <Link
+          <LinkAsButton 
             href='/xx99-mark-two-headphones'
-            className={`${buttons.baseButton} ${buttons.orangeButton} ${typography.upperCaseBold13px}`}
-          >
-            see product
-          </Link>
+            text='see product'
+            linkStyle='orangeButton'
+          />
         </section>
       </div>
       <CategoriesMenu />
-      <main className={`lrPaddingContainer ${home.mainProducts}`}>
-        <section className={`borderRadius ${home.higlightSection}`}>
-          <Image src={decorCirclesSvg} alt='' className={home.decorCirclesSvg} />
-          <div className={home.higlightProductImage}></div>
-          <div className={home.higlightProductInfo}>
+      <main className={`lrPaddingContainer ${stylesHome.mainProducts}`}>
+        <section className={`borderRadius ${stylesHome.higlightSection}`}>
+          <Image src={decorCirclesSvg} alt='' className={stylesHome.decorCirclesSvg} />
+          <div className={stylesHome.higlightProductImage}></div>
+          <div className={stylesHome.higlightProductInfo}>
             <h2 className={typography.largeHeader}>zx9 speaker</h2>
             <p className={typography.baseText}>
               Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
             </p>
-            <Link
+            <LinkAsButton 
               href='/zx9-speaker'
-              className={`${buttons.baseButton} ${buttons.blackButton} ${typography.upperCaseBold13px}`}
-            >
-              see product
-            </Link>
+              text='see product'
+              linkStyle='blackButton'
+            />
           </div>
         </section>
-        <section className={`borderRadius ${home.bgImageSection}`}>
+        <section className={`borderRadius ${stylesHome.bgImageSection}`}>
           <h2 className={typography.smallHeader}>zx7 speaker</h2>
-          <Link
+          <LinkAsButton 
             href='/zx7-speaker'
-            className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}
-          >
-            see product
-          </Link>
+            text='see product'
+            linkStyle='borderedButton'
+          />
         </section>
-        <section className={`borderRadius ${home.dividedSection}`}>
-          <div className={`borderRadius ${home.dividedProductImage}`}></div>
-          <div className={`borderRadius ${home.dividedProductInfo}`}>
+        <section className={`borderRadius ${stylesHome.dividedSection}`}>
+          <div className={`borderRadius ${stylesHome.dividedProductImage}`}></div>
+          <div className={`borderRadius ${stylesHome.dividedProductInfo}`}>
             <h2 className={typography.smallHeader}>yx1 earphones</h2>
-            <Link
+            <LinkAsButton 
               href='/yx1-earphones'
-              className={`${buttons.baseButton} ${buttons.borderedButton} ${typography.upperCaseBold13px}`}
-            >
-              see product
-            </Link>
+              text='see product'
+              linkStyle='borderedButton'
+            />
           </div>
         </section>
       </main>
@@ -76,6 +71,6 @@ function Home() {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;
