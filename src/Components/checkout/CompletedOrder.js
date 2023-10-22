@@ -9,7 +9,7 @@ import buttons from '@/styles/buttons.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 import completedOrder from '@/styles/completedOrder.module.scss';
 
-import CartProduct from '../CartProduct';
+import CartProduct from '../cart/CartProduct';
 import ExpandButton from './ExpandButton';
 
 import { addCommaToPrice } from '@/utils/utils';

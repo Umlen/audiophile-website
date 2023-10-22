@@ -50,3 +50,8 @@ export type CategoryType = {
   name: string;
   image: string;
 };
+
+export type LinkPropsType = {
+  href: string;
+  text: string;
+};

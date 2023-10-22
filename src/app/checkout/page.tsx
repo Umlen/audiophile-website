@@ -1,10 +1,8 @@
 'use client'
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 import header from '@/styles/header-and-nav.module.scss';
-import typography from '@/styles/typography.module.scss';
 import checkout from '@/styles/checkout.module.scss';
 
 import Header from '@/Components/Header';
@@ -12,6 +10,7 @@ import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
 import CheckoutForm from '@/Components/checkout/CheckoutForm';
 import CompletedOrder from '@/Components/checkout/CompletedOrder';
 import Footer from '@/Components/Footer';
+import GreyLink from '@/Components/ui/GreyLink';
 
 function Checkout() {
   const [isCashPay, setIsCashPay] = useState(false);
@@ -40,9 +39,10 @@ function Checkout() {
       </div>
       <main className={`lrPaddingContainer ${checkout.mainContainer}`}>
         {isOrderComplete && <CompletedOrder cartItems={cartItems} />}
-        <Link href='/' className={`blackLink goBackLink ${typography.baseText}`}>
-          Go Back
-        </Link>
+        <GreyLink 
+          href='/'
+          text='Go Back'
+        />
         <div className={checkout.gridContainer}>
           <CheckoutForm 
             isCashPay={isCashPay} 

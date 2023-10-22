@@ -4,7 +4,7 @@ import checkout from '@/styles/checkout.module.scss';
 
 
 import { addCommaToPrice } from '@/utils/utils';
-import CartProduct from '../CartProduct';
+import CartProduct from '../cart/CartProduct';
 import { sumCalculation } from '@/utils/utilsCalculations';
 
 function CheckoutSummary(props) {

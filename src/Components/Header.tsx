@@ -7,7 +7,7 @@ import { useResize } from '@/hooks/hooks';
 import mobileMenuIcon from '/public/assets/icons/icon-hamburger.svg';
 import logo from '/public/assets/logo.svg';
 
-import Cart from './Cart';
+import Cart from './cart/Cart';
 import MobileMenu from './menus/MobileMenu';
 import DesktopMenu from './menus/DesktopMenu';
 

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { FunctionComponent } from 'react';
 import { ProductInCartType } from '@/types/types';
 import { addCommaToPrice } from '@/utils/utils';
-import QuantityControlsBox from './QuantityControlsBox';
+import QuantityControlsBox from '../ui/QuantityControlsBox';
 import typography from '@/styles/typography.module.scss';
 import stylesCart from '@/styles/cart.module.scss';
 
