@@ -12,7 +12,8 @@ import completedOrder from '@/styles/completedOrder.module.scss';
 import CartProduct from '../CartProduct';
 import ExpandButton from './ExpandButton';
 
-import { addCommaToPrice, sumCalculation } from '@/utils/utils';
+import { addCommaToPrice } from '@/utils/utils';
+import { sumCalculation } from '@/utils/utilsCalculations';
 
 
 function CompletedOrder(props) {

@@ -1,7 +1,5 @@
 import { ProductInCartType, ProductType } from '@/types/types';
 
-type GetLocalStorageCartType = () => ProductInCartType[];
-
 type ChangeQuantityType = (
   id: string, cartItems: ProductInCartType[]
 ) => ProductInCartType[];
@@ -10,6 +8,11 @@ type ProductsCategoryFilterType = (
   category: string,
   productsData: ProductType[]
 ) => ProductType[];
+
+type ProductsSlugFilter = (
+  slug: string,
+  productsData: ProductType[]
+) => ProductType;
 
 type PlaceNewProductsFirstType = (products: ProductType[]) => ProductType[];
 
@@ -28,16 +31,6 @@ export const addCommaToPrice = (price: number) => {
   }  
 
   return resultArr.reverse().join(',');
-};
-
-export const totalPriceCalculation = (cartItems: ProductInCartType[]) => {
-  return cartItems.reduce((total, {price, quantity}) => total += price * quantity, 0);
-};
-
-export const getLocalStorageCart: GetLocalStorageCartType = () => {
-  const localStorageCart = localStorage.getItem('cart');
-
-  return localStorageCart ? JSON.parse(localStorageCart) : [];
 };
 
 export const increaseQuantity: ChangeQuantityType = (id, cartItems) => {
@@ -75,15 +68,10 @@ export const productsCategoryFilter: ProductsCategoryFilterType = (category, pro
   return productsData.filter(product => product.category === category);
 }
 
+export const productsSlugFilter: ProductsSlugFilter = (slug, productsData) => {
+  return productsData.filter(product => product.slug === slug)[0];
+}
+
 export const placeNewProductsFirst: PlaceNewProductsFirstType = (products) => {
   return products.sort((a, b) => Number(b.isNew) - Number(a.isNew));
 }
-
-export const sumCalculation = (cartItems: ProductInCartType[]) => {
-  const totalPrice = totalPriceCalculation(cartItems);
-  const vatCost = Math.floor(totalPrice * 0.2);
-  const shippingCost = Math.ceil(totalPrice * 0.01);
-  const grandTotal = totalPrice + shippingCost;
-
-  return {totalPrice, vatCost, shippingCost, grandTotal};
-};
