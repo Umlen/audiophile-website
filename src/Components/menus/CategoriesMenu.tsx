@@ -1,12 +1,12 @@
 import { FunctionComponent } from 'react';
 import { categories } from '@/data/categories';
 import CategoriesMenuItem from './CategoriesMenuItem';
-import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesMenu from '@/styles/menus.module.scss';
 
 const CategoriesMenu: FunctionComponent = () => {
   return (
     <nav 
-      className={`lrPaddingContainer ${stylesHeader.categoriesMenu}`} 
+      className={`lrPaddingContainer ${stylesMenu.categoriesMenu}`} 
       aria-label='categories menu'
     >
       {

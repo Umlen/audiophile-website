@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react';
 import CategoriesMenu from './CategoriesMenu';
-import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesMenu from '@/styles/menus.module.scss';
 
 const MobileMenu: FunctionComponent = () => {
   return (
     <>
-      <div className={stylesHeader.mobileMenu}>
+      <div className={stylesMenu.mobileMenu}>
         <CategoriesMenu />
       </div>
       <div className='blackout'></div>

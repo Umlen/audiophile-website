@@ -6,7 +6,7 @@ import { ProductType } from '@/types/types';
 import LinkAsButton from './ui/LinkAsButton';
 
 import typography from '@/styles/typography.module.scss';
-import stylesProduct from '@/styles/product-preview.module.scss';
+import stylesProduct from '@/styles/productPreview.module.scss';
 
 type ProductsPreviewType = {
   product: ProductType;

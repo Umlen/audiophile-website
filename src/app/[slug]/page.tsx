@@ -18,7 +18,7 @@ import Footer from '@/Components/Footer';
 import About from '@/Components/About';
 
 import typography from '@/styles/typography.module.scss';
-import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesHeader from '@/styles/header.module.scss';
 import stylesProduct from '@/styles/product.module.scss';
 
 type Props = {
