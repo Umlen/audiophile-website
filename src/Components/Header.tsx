@@ -11,7 +11,7 @@ import Cart from './cart/Cart';
 import MobileMenu from './menus/MobileMenu';
 import DesktopMenu from './menus/DesktopMenu';
 
-import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesHeader from '@/styles/header.module.scss';
 
 const Header: FunctionComponent = () => {
   const isMobile = useResize(1024);

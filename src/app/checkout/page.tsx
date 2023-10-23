@@ -11,7 +11,7 @@ import CompletedOrder from '@/Components/checkout/CompletedOrder';
 import Footer from '@/Components/Footer';
 import GreyLink from '@/Components/ui/GreyLink';
 
-import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesHeader from '@/styles/header.module.scss';
 import stylesCheckout from '@/styles/checkout.module.scss';
 
 const Checkout: FunctionComponent = () => {

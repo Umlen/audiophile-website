@@ -10,7 +10,7 @@ import About from '@/Components/About';
 import ProductsPreview from '@/Components/ProductsPreview';
 
 import typography from '@/styles/typography.module.scss';
-import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesHeader from '@/styles/header.module.scss';
 
 export const metadata: Metadata = {
   title: 'Audiophile - Speakers',
