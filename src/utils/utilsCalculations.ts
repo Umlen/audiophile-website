@@ -1,14 +1,32 @@
 import { ProductInCartType } from '@/types/types';
+import { addCommaToPrice } from './utils';
 
-export const totalPriceCalculation = (cartItems: ProductInCartType[]) => {
-  return cartItems.reduce((total, {price, quantity}) => total += price * quantity, 0);
+export const totalPriceCalculation = (cart: ProductInCartType[]) => {
+  return cart.reduce((total, {price, quantity}) => total += price * quantity, 0);
 };
 
-export const sumCalculation = (cartItems: ProductInCartType[]) => {
-  const totalPrice = totalPriceCalculation(cartItems);
-  const vatCost = Math.floor(totalPrice * 0.2);
-  const shippingCost = Math.ceil(totalPrice * 0.01);
-  const grandTotal = totalPrice + shippingCost;
+export const vatCalculation = (total: number) => {
+  return Math.floor(total * 0.2);
+};
 
-  return {totalPrice, vatCost, shippingCost, grandTotal};
+export const shippingCalculation = (total: number) => {
+  return Math.ceil(total * 0.01);
+};
+
+export const grandTotalCalculation = (total: number, shipping: number) => {
+  return total + shipping;
+};
+
+export const createCheckoutSums = (cart: ProductInCartType[]) => {
+  const total = totalPriceCalculation(cart);
+  const vat = vatCalculation(total);
+  const shipping = shippingCalculation(total);
+  const grandTotal = grandTotalCalculation(total, shipping)
+
+  return {
+    total: addCommaToPrice(total),
+    vat: addCommaToPrice(vat),
+    shipping: addCommaToPrice(shipping),
+    grandTotal: addCommaToPrice(grandTotal),
+  };
 };

@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react';
-
-import header from '@/styles/header-and-nav.module.scss';
-import checkout from '@/styles/checkout.module.scss';
+import { useState, FunctionComponent, useEffect } from 'react';
+import { ProductInCartType } from '@/types/types';
+import { getLocalStorageCart } from '@/utils/utilsCart';
 
 import Header from '@/Components/Header';
 import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
@@ -12,16 +11,16 @@ import CompletedOrder from '@/Components/checkout/CompletedOrder';
 import Footer from '@/Components/Footer';
 import GreyLink from '@/Components/ui/GreyLink';
 
-function Checkout() {
+import stylesHeader from '@/styles/header-and-nav.module.scss';
+import stylesCheckout from '@/styles/checkout.module.scss';
+
+const Checkout: FunctionComponent = () => {
+  const [cart, setCart] = useState<ProductInCartType[]>([]);
   const [isCashPay, setIsCashPay] = useState(false);
-  const [cartItems, setCartItems] = useState(undefined);
   const [isOrderComplete, setIsOrderComplete] = useState(false);
 
   useEffect(() => {
-    const cart = localStorage.getItem('cart');
-    if (cart) {
-      setCartItems(JSON.parse(cart));
-    }
+    setCart(getLocalStorageCart());
   }, []);
 
   function cashPayToggler() {
@@ -34,28 +33,30 @@ function Checkout() {
 
   return (
     <>
-      <div className={`lrPaddingContainer ${header.headerWrapper}`}>
+      <div className={`lrPaddingContainer ${stylesHeader.headerWrapper}`}>
         <Header />
       </div>
-      <main className={`lrPaddingContainer ${checkout.mainContainer}`}>
-        {isOrderComplete && <CompletedOrder cartItems={cartItems} />}
+      <main className={`lrPaddingContainer ${stylesCheckout.mainContainer}`}>
+        {
+          isOrderComplete && <CompletedOrder cart={cart} />
+        }
         <GreyLink 
           href='/'
           text='Go Back'
         />
-        <div className={checkout.gridContainer}>
+        <div className={stylesCheckout.gridContainer}>
           <CheckoutForm 
+            cart={cart} 
             isCashPay={isCashPay} 
             cashPayToggler={cashPayToggler} 
-            cartItems={cartItems} 
             orderStateToggler={orderStateToggler}
           />
-          <CheckoutSummary isCashPay={isCashPay} cartItems={cartItems} />
+          <CheckoutSummary isCashPay={isCashPay} cart={cart} />
         </div>
       </main>
       <Footer />
     </>
   );
-}
+};
 
 export default Checkout;

@@ -1,18 +1,20 @@
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FunctionComponent, useState } from 'react';
 import { addCommaToPrice, decreaseQuantity, increaseQuantity } from '@/utils/utils';
 import { getLocalStorageCart } from '@/utils/utilsCart';
 import { totalPriceCalculation } from '@/utils/utilsCalculations';
+
 import CartProduct from './CartProduct';
+import OrangeButtonWide from '../ui/OrangeButtonWide';
 
 import typography from '@/styles/typography.module.scss';
-import stylesButtons from '@/styles/buttons.module.scss';
 import stylesCart from '@/styles/cart.module.scss';
 
 const Cart: FunctionComponent = () => {
   const [cartItems, setCartItems] = useState(getLocalStorageCart());
+  const router = useRouter();
   const productsInCart = cartItems.length;
   const totalPrice = cartItems.length ? addCommaToPrice(totalPriceCalculation(cartItems)) : 0;
   
@@ -29,6 +31,10 @@ const Cart: FunctionComponent = () => {
   function clearCart() {
     localStorage.clear();
     setCartItems([]);
+  }
+
+  function checkoutRedirect() {
+    router.push('/checkout');
   }
 
   return (
@@ -60,12 +66,10 @@ const Cart: FunctionComponent = () => {
         </div>
         {
           productsInCart > 0 &&
-            <Link
-              href='/checkout'
-              className={`${stylesButtons.baseButton} ${stylesButtons.orangeButton} ${typography.upperCaseBold13px} ${stylesButtons.fullWidthBtn}`}
-            >
-              checkout
-            </Link>
+            <OrangeButtonWide 
+              onClick={checkoutRedirect}
+              text='checkout'
+            />
         }
       </div>
       <div className='blackout' />

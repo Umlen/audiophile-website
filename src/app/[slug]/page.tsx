@@ -84,7 +84,7 @@ const Product: FunctionComponent = ({ params: {slug} }: Props) => {
                   class={stylesProduct.quantityWrapper}
                 />
                 <OrangeButton 
-                  clickHandler={addToCart}
+                  onClick={addToCart}
                   text='add to cart'
                 />
               </div>

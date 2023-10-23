@@ -4,18 +4,17 @@ import stylesButtons from '@/styles/buttons.module.scss';
 
 interface OrangeButtonProps extends ComponentPropsWithoutRef<'button'> {
   text: string;
-
 };
 
-const OrangeButton: FunctionComponent<OrangeButtonProps> = ( {text, ...props} ) => {
+const OrangeButtonWide: FunctionComponent<OrangeButtonProps> = ( {text, ...props} ) => {
   return (
     <button 
       {...props}
-      className={`${stylesButtons.baseButton} ${stylesButtons.orangeButton} ${typography.upperCaseBold13px}`}
+      className={`${stylesButtons.baseButton} ${stylesButtons.orangeButton} ${stylesButtons.fullWidthBtn} ${typography.upperCaseBold13px}`}
     >
       {text}
     </button>
   );
 };
 
-export default OrangeButton;
+export default OrangeButtonWide;
