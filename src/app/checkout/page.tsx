@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, FunctionComponent } from 'react';
+import { useState, FunctionComponent, useEffect } from 'react';
+import { ProductInCartType } from '@/types/types';
 import { getLocalStorageCart } from '@/utils/utilsCart';
 
 import Header from '@/Components/Header';
@@ -14,9 +15,13 @@ import stylesHeader from '@/styles/header-and-nav.module.scss';
 import stylesCheckout from '@/styles/checkout.module.scss';
 
 const Checkout: FunctionComponent = () => {
-  const cart = getLocalStorageCart();
+  const [cart, setCart] = useState<ProductInCartType[]>([]);
   const [isCashPay, setIsCashPay] = useState(false);
   const [isOrderComplete, setIsOrderComplete] = useState(false);
+
+  useEffect(() => {
+    setCart(getLocalStorageCart());
+  }, []);
 
   function cashPayToggler() {
     setIsCashPay(prevIsCashPay => !prevIsCashPay);
