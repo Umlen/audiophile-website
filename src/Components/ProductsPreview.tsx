@@ -1,20 +1,22 @@
 'use client';
 
-import { FunctionComponent } from 'react';
+import { type FunctionComponent } from 'react';
 import { useImageDimension } from '@/hooks/hooks';
-import { ProductType } from '@/types/types';
+import { type ProductType } from '@/types/types';
 import LinkAsButton from './ui/LinkAsButton';
 
 import typography from '@/styles/typography.module.scss';
 import stylesProduct from '@/styles/productPreview.module.scss';
 
-type ProductsPreviewType = {
+interface ProductsPreviewProps {
   product: ProductType;
-};
+}
 
-const ProductsPreview: FunctionComponent<ProductsPreviewType> = ( {product} ) => {
+const ProductsPreview: FunctionComponent<ProductsPreviewProps> = ({
+  product,
+}) => {
   const imageDimension = useImageDimension();
-  const {slug, name, categoryImage, isNew, description} = product;
+  const { slug, name, categoryImage, isNew, description } = product;
 
   return (
     <section className={stylesProduct.product}>
@@ -23,18 +25,19 @@ const ProductsPreview: FunctionComponent<ProductsPreviewType> = ( {product} ) =>
         style={{ backgroundImage: `url(${categoryImage[imageDimension]})` }}
       />
       <div className={stylesProduct.info}>
-        {
-          isNew &&
-            <p className={`${typography.widespaceText} ${typography.highlightText}`}>
-              new product
-            </p>
-        }
+        {isNew && (
+          <p
+            className={`${typography.widespaceText} ${typography.highlightText}`}
+          >
+            new product
+          </p>
+        )}
         <h2 className={typography.bigHeader}>{name}</h2>
         <p className={typography.baseText}>{description}</p>
-        <LinkAsButton 
+        <LinkAsButton
           href={`/${slug}`}
-          text='see product'
-          linkStyle='orangeButton'
+          text="see product"
+          linkStyle="orangeButton"
         />
       </div>
     </section>

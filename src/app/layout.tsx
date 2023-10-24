@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
+import { type FunctionComponent } from 'react';
 import { Manrope } from 'next/font/google';
 import '@/styles/global.scss';
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Audiophile',
   description: 'Audiophile online store',
   icons: {
-    icon: '/favicon.png'
+    icon: '/favicon.png',
   },
   viewport: {
     width: 'device-width',
@@ -17,18 +18,16 @@ export const metadata: Metadata = {
   },
 };
 
-function RootLayout({
+const RootLayout: FunctionComponent = ({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) => {
   return (
     <html lang="en">
-      <body className={manrope.className}>
-        {children}
-      </body>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
-}
+};
 
 export default RootLayout;

@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { useState, FunctionComponent, useEffect } from 'react';
-import { ProductInCartType } from '@/types/types';
+import { type FunctionComponent, useState, useEffect } from 'react';
 import { getLocalStorageCart } from '@/utils/utilsCart';
+import { type ProductInCartType } from '@/types/types';
 
 import Header from '@/Components/Header';
+import Footer from '@/Components/Footer';
 import CheckoutSummary from '@/Components/checkout/CheckoutSummary';
 import CheckoutForm from '@/Components/checkout/CheckoutForm';
 import CompletedOrder from '@/Components/checkout/CompletedOrder';
-import Footer from '@/Components/Footer';
 import GreyLink from '@/Components/ui/GreyLink';
 
 import stylesHeader from '@/styles/header.module.scss';
@@ -23,11 +23,11 @@ const Checkout: FunctionComponent = () => {
     setCart(getLocalStorageCart());
   }, []);
 
-  function cashPayToggler() {
-    setIsCashPay(prevIsCashPay => !prevIsCashPay);
+  function cashPayToggler(): void {
+    setIsCashPay((prevIsCashPay) => !prevIsCashPay);
   }
 
-  function orderStateToggler() {
+  function orderStateToggler(): void {
     setIsOrderComplete(true);
   }
 
@@ -37,18 +37,13 @@ const Checkout: FunctionComponent = () => {
         <Header />
       </div>
       <main className={`lrPaddingContainer ${stylesCheckout.mainContainer}`}>
-        {
-          isOrderComplete && <CompletedOrder cart={cart} />
-        }
-        <GreyLink 
-          href='/'
-          text='Go Back'
-        />
+        {isOrderComplete && <CompletedOrder cart={cart} />}
+        <GreyLink href="/" text="Go Back" />
         <div className={stylesCheckout.gridContainer}>
-          <CheckoutForm 
-            cart={cart} 
-            isCashPay={isCashPay} 
-            cashPayToggler={cashPayToggler} 
+          <CheckoutForm
+            cart={cart}
+            isCashPay={isCashPay}
+            cashPayToggler={cashPayToggler}
             orderStateToggler={orderStateToggler}
           />
           <CheckoutSummary isCashPay={isCashPay} cart={cart} />

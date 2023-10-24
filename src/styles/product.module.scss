@@ -28,10 +28,10 @@
     align-items: start;
     justify-content: space-between;
     grid-template-areas:
-      "preview preview"
-      "features includes"
-      "gallery gallery"
-      "others others";
+      'preview preview'
+      'features includes'
+      'gallery gallery'
+      'others others';
   }
 }
 
@@ -90,7 +90,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-content: center;
   align-items: baseline;
-  font-size: .815rem;
+  font-size: 0.815rem;
   font-weight: 700;
   line-height: 1.3em;
   letter-spacing: 1px;
@@ -128,8 +128,8 @@
     grid-template-rows: 174px 174px;
     grid-template-columns: 40% auto;
     grid-template-areas:
-      "smallImg bigImg"
-      "smallImg bigImg";
+      'smallImg bigImg'
+      'smallImg bigImg';
   }
 
   @media (min-width: 1280px) {

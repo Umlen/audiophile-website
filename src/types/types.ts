@@ -1,4 +1,4 @@
-export type ProductType = {
+export interface ProductType {
   id: string;
   slug: string;
   name: string;
@@ -13,45 +13,45 @@ export type ProductType = {
   includes: IncludesType[];
   gallery: ImageType[];
   others: OthersType[];
-};
+}
 
-type CartType = {
+interface CartType {
   cartName: string;
   cartImage: string;
-};
+}
 
-export type ImageType = {
+export interface ImageType {
   mobile: string;
   tablet: string;
   desktop: string;
-};
+}
 
-export type IncludesType = {
+export interface IncludesType {
   quantity: number;
   item: string;
-};
+}
 
-export type OthersType = {
+export interface OthersType {
   slug: string;
   name: string;
   image: ImageType;
-};
+}
 
-export type ProductInCartType = {
+export interface ProductInCartType {
   id: string;
   name: string;
   price: number;
   quantity: number;
   image: string;
-};
+}
 
-export type CategoryType = {
+export interface CategoryType {
   id: string;
   name: string;
   image: string;
-};
+}
 
-export type LinkPropsType = {
+export interface LinkPropsType {
   href: string;
   text: string;
-};
+}

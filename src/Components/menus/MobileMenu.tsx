@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { type FunctionComponent } from 'react';
 import CategoriesMenu from './CategoriesMenu';
 import stylesMenu from '@/styles/menus.module.scss';
 
@@ -8,7 +8,7 @@ const MobileMenu: FunctionComponent = () => {
       <div className={stylesMenu.mobileMenu}>
         <CategoriesMenu />
       </div>
-      <div className='blackout'></div>
+      <div className="blackout" />
     </>
   );
 };

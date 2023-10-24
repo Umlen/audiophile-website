@@ -7,21 +7,25 @@
 }
 
 .baseText {
-  opacity: .5;
+  opacity: 0.5;
   line-height: 1.55;
   font-weight: 500;
 }
 
-.widespaceText, .upperCaseBold13px,
-.largeHeader, .bigHeader,
-.mediumHeader, .smallHeader,
-.smallestHeader, .bold18px,
+.widespaceText,
+.upperCaseBold13px,
+.largeHeader,
+.bigHeader,
+.mediumHeader,
+.smallHeader,
+.smallestHeader,
+.bold18px,
 .uppercaseText {
   text-transform: uppercase;
 }
 
 .widespaceText {
-  font-size: .875rem;
+  font-size: 0.875rem;
   letter-spacing: 10px;
 }
 
@@ -31,16 +35,17 @@
 
 .boldText,
 .upperCaseBold13px,
-.bold18px, .bold12px {
+.bold18px,
+.bold12px {
   font-weight: 700;
 }
 
 .bold12px {
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 .upperCaseBold13px {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .bold18px {
@@ -80,7 +85,7 @@
 .mediumHeader {
   font-size: 1.5rem;
   line-height: 1.5;
-  letter-spacing: .9px;
+  letter-spacing: 0.9px;
 
   @media (min-width: 700px) {
     font-size: 2rem;

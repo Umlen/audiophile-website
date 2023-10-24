@@ -23,7 +23,7 @@
   display: flex;
   gap: 34px;
 
-  @media (min-width: 1024px) {  
+  @media (min-width: 1024px) {
     order: 2;
   }
 }
@@ -72,7 +72,7 @@
 }
 
 .categoriesMenuItemLink {
-  color: rgba(var(--primary-black), .5);
+  color: rgba(var(--primary-black), 0.5);
   letter-spacing: 1px;
   margin-right: 13px;
 

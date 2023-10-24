@@ -1,27 +1,40 @@
-import { ProductInCartType } from '@/types/types';
+import { type ProductInCartType } from '@/types/types';
 import { addCommaToPrice } from './utils';
 
-export const totalPriceCalculation = (cart: ProductInCartType[]) => {
-  return cart.reduce((total, {price, quantity}) => total += price * quantity, 0);
+type CreateCheckoutSumsType = (cart: ProductInCartType[]) => {
+  total: string;
+  vat: string;
+  shipping: string;
+  grandTotal: string;
 };
 
-export const vatCalculation = (total: number) => {
+export const totalPriceCalculation = (cart: ProductInCartType[]): number => {
+  return cart.reduce(
+    (total, { price, quantity }) => (total += price * quantity),
+    0,
+  );
+};
+
+export const vatCalculation = (total: number): number => {
   return Math.floor(total * 0.2);
 };
 
-export const shippingCalculation = (total: number) => {
+export const shippingCalculation = (total: number): number => {
   return Math.ceil(total * 0.01);
 };
 
-export const grandTotalCalculation = (total: number, shipping: number) => {
+export const grandTotalCalculation = (
+  total: number,
+  shipping: number,
+): number => {
   return total + shipping;
 };
 
-export const createCheckoutSums = (cart: ProductInCartType[]) => {
+export const createCheckoutSums: CreateCheckoutSumsType = (cart) => {
   const total = totalPriceCalculation(cart);
   const vat = vatCalculation(total);
   const shipping = shippingCalculation(total);
-  const grandTotal = grandTotalCalculation(total, shipping)
+  const grandTotal = grandTotalCalculation(total, shipping);
 
   return {
     total: addCommaToPrice(total),

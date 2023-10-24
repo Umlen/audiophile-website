@@ -7,10 +7,8 @@ export const useResize: UseResizeType = (breakpoint = 1024) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const windowResizeHandler = () => {
-      window.innerWidth < breakpoint 
-        ? setIsMobile(true) 
-        : setIsMobile(false);
+    const windowResizeHandler = (): void => {
+      window.innerWidth < breakpoint ? setIsMobile(true) : setIsMobile(false);
     };
 
     window.addEventListener('resize', windowResizeHandler);
@@ -28,19 +26,19 @@ export const useImageDimension: UseImageDimensionType = () => {
   const [imageDimension, setImageDimension] = useState('mobile');
 
   useEffect(() => {
-    const chooseImageDimension = () => {
-      window.innerWidth > 1024 
+    const chooseImageDimension = (): void => {
+      window.innerWidth > 1024
         ? setImageDimension('desktop')
         : window.innerWidth > 699
-            ? setImageDimension('tablet')
-            : setImageDimension('mobile');
+        ? setImageDimension('tablet')
+        : setImageDimension('mobile');
     };
 
     window.addEventListener('resize', chooseImageDimension);
     chooseImageDimension();
 
     return () => {
-      window.removeEventListener('resize', chooseImageDimension)
+      window.removeEventListener('resize', chooseImageDimension);
     };
   }, []);
 
