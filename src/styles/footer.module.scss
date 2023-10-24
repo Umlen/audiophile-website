@@ -11,7 +11,7 @@
   gap: 48px;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 50%;
@@ -29,10 +29,10 @@
     gap: 32px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "logo logo"
-      "menu menu"
-      "description description"
-      "copyright socials";
+      'logo logo'
+      'menu menu'
+      'description description'
+      'copyright socials';
 
     &::before {
       left: 40px;
@@ -45,9 +45,9 @@
     padding-bottom: 48px;
     gap: 36px;
     grid-template-areas:
-      "logo menu"
-      "description socials"
-      "copyright socials";
+      'logo menu'
+      'description socials'
+      'copyright socials';
 
     &::before {
       left: 165px;
@@ -63,7 +63,6 @@
   .copyright {
     grid-area: copyright;
   }
-
 }
 
 .menu {

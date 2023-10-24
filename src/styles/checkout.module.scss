@@ -90,9 +90,9 @@
   border: 1px solid rgb(var(--secondary-gray));
   padding: 18px 24px;
   margin-bottom: 24px;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 700;
-  color: rgba(var(--primary-black), .4);
+  color: rgba(var(--primary-black), 0.4);
 
   &::placeholder {
     color: rgb(var(--secondary-gray));
@@ -104,13 +104,13 @@
   }
 }
 
-.formInput[type=number] {
+.formInput[type='number'] {
   -moz-appearance: textfield;
 
-  &::-webkit-inner-spin-button, 
-  &::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
@@ -138,7 +138,7 @@
 
   &::after,
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -170,7 +170,7 @@
   color: red;
 
   &::after {
-    content: "";
+    content: '';
     font-family: inherit;
     position: absolute;
     top: 0;
@@ -181,9 +181,9 @@
 }
 
 .errorLabelFormat::after {
-  content: "Wrong format";
+  content: 'Wrong format';
 }
 
 .errorLaberEmpty::after {
-  content: "Empty field";
+  content: 'Empty field';
 }

@@ -9,7 +9,7 @@
   z-index: 50;
   padding-top: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid rgba(var(--primary-white), .1);
+  border-bottom: 1px solid rgba(var(--primary-white), 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,7 +18,7 @@
 @media (min-width: 1024px) {
   /*Reordering for desktop menu*/
   .logo {
-    order: 1
+    order: 1;
   }
 
   .cartIcon {

@@ -1,15 +1,17 @@
-import { FunctionComponent } from 'react';
-import { ProductInCartType } from '@/types/types';
+import { type FunctionComponent } from 'react';
+import { type ProductInCartType } from '@/types/types';
 import CartProduct from '../cart/CartProduct';
 
 import typography from '@/styles/typography.module.scss';
 import stylesCheckout from '@/styles/checkout.module.scss';
 
-type CheckoutProductsProps = {
+interface CheckoutProductsProps {
   product: ProductInCartType;
-};
+}
 
-const CheckoutProducts: FunctionComponent<CheckoutProductsProps> = ( {product} ) => {
+const CheckoutProducts: FunctionComponent<CheckoutProductsProps> = ({
+  product,
+}) => {
   return (
     <div className={stylesCheckout.flexContainer}>
       <CartProduct product={product} />

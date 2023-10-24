@@ -36,7 +36,7 @@ button {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(var(--primary-black), .5);
+  background-color: rgba(var(--primary-black), 0.5);
   z-index: -1;
 }
 
@@ -83,7 +83,7 @@ button {
 
 .blackLink {
   color: rgb(var(--primary-black));
-  opacity: .5;
+  opacity: 0.5;
 
   &:hover {
     opacity: 1;

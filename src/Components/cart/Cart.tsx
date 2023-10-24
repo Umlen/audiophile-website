@@ -1,10 +1,14 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { FunctionComponent, useState } from 'react';
-import { addCommaToPrice, decreaseQuantity, increaseQuantity } from '@/utils/utils';
+import { type FunctionComponent, useState } from 'react';
 import { getLocalStorageCart } from '@/utils/utilsCart';
 import { totalPriceCalculation } from '@/utils/utilsCalculations';
+import {
+  addCommaToPrice,
+  decreaseQuantity,
+  increaseQuantity,
+} from '@/utils/utils';
 
 import CartProduct from './CartProduct';
 import OrangeButtonWide from '../ui/OrangeButtonWide';
@@ -16,24 +20,27 @@ const Cart: FunctionComponent = () => {
   const [cartItems, setCartItems] = useState(getLocalStorageCart());
   const router = useRouter();
   const productsInCart = cartItems.length;
-  const totalPrice = cartItems.length ? addCommaToPrice(totalPriceCalculation(cartItems)) : 0;
-  
-  function increaseQuantityHandler(id: string) {
+  const totalPrice =
+    cartItems.length > 0
+      ? addCommaToPrice(totalPriceCalculation(cartItems))
+      : 0;
+
+  function increaseQuantityHandler(id: string): void {
     const newCartItems = increaseQuantity(id, cartItems);
     setCartItems(newCartItems);
   }
 
-  function decreaseQuantityHandler(id: string) {
+  function decreaseQuantityHandler(id: string): void {
     const newCartItems = decreaseQuantity(id, cartItems);
     setCartItems(newCartItems);
   }
 
-  function clearCart() {
+  function clearCart(): void {
     localStorage.clear();
     setCartItems([]);
   }
 
-  function checkoutRedirect() {
+  function checkoutRedirect(): void {
     router.push('/checkout');
   }
 
@@ -49,32 +56,27 @@ const Cart: FunctionComponent = () => {
             Remove all
           </button>
         </div>
-        {
-          cartItems.map(cartItem => (
-              <CartProduct 
-                key={cartItem.id}
-                product={cartItem}
-                increaseQuantity={increaseQuantityHandler}
-                decreaseQuantity={decreaseQuantityHandler}
-              />
-            )
-          )
-        }
+        {cartItems.map((cartItem) => (
+          <CartProduct
+            key={cartItem.id}
+            product={cartItem}
+            increaseQuantity={increaseQuantityHandler}
+            decreaseQuantity={decreaseQuantityHandler}
+          />
+        ))}
         <div className={stylesCart.flexContainer}>
-          <p className={`${typography.baseText} ${typography.uppercaseText}`}>Total</p>
+          <p className={`${typography.baseText} ${typography.uppercaseText}`}>
+            Total
+          </p>
           <p className={typography.bold18px}>$ {totalPrice}</p>
         </div>
-        {
-          productsInCart > 0 &&
-            <OrangeButtonWide 
-              onClick={checkoutRedirect}
-              text='checkout'
-            />
-        }
+        {productsInCart > 0 && (
+          <OrangeButtonWide onClick={checkoutRedirect} text="checkout" />
+        )}
       </div>
-      <div className='blackout' />
+      <div className="blackout" />
     </>
   );
-}
+};
 
 export default Cart;
