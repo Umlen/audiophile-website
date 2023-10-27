@@ -20,8 +20,6 @@ Audiophile Website offers the following features to enhance the user experience:
 Visit the live site to explore the Audiophile Website:
 [Live Site URL](https://audiophileonline.store/)
 
-## Development Process
-
 ### Technologies Used
 
 - [TypeScript](https://www.typescriptlang.org/)
